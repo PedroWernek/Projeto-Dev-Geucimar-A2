@@ -7,14 +7,14 @@ import br.edu.up.modelos.*;
 public class MenuPassageiro {
 
     /* precisa manipular passagens: comprar, deletar, consultar (baseado em diferenciador, possivelmente cpf) */
-    static ControleAeronave controleAeronave = new ControleAeronave();
+    ControlePassageiro controlePassageiro = new ControlePassageiro();
 
     public static void executar() {
         int opcao;
         int pessoas = 0;
-
         String nome;
-        String rg;     
+        String rg; 
+
         do {
 
             Prompt.separador();
@@ -59,6 +59,13 @@ public class MenuPassageiro {
                     break;
                 case 2:
                     /* todo */
+                    MenuGerente.listarVoos();
+                    a = Prompt.lerInteiro("Digite o índice do seu voo: ");
+
+                    rg = Prompt.lerLinha("Informe seu RG: ");
+
+                    
+
                     break;
                 case 3:
                     /* todo */
