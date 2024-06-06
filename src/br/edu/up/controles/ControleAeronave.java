@@ -7,6 +7,7 @@ import java.util.List;
 import br.edu.up.modelos.*;
 
 public class ControleAeronave {
+    /* TODO: add aeronave */
     private Aeronave aeronave;
     private Pessoa[] pessoas;
 
