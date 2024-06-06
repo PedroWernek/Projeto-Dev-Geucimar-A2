@@ -9,6 +9,9 @@ import br.edu.up.modelos.*;
 public class MenuGerente {
     /* precisa manipular: aeronaves, voos e funcionários (adicionar, editar, excluir, selecionar) */
     static ControleAeronave controleAeronave = new ControleAeronave();
+    /*Pedro - criando controle Comandante */
+    static ControleComandante controleComandante = new ControleComandante();
+
     static ArrayList<Voo> voo = new ArrayList<Voo>();
 
     public static String listarVoos() {
@@ -58,9 +61,9 @@ public class MenuGerente {
             Prompt.imprimir("1: Adicionar Aeronave");
             Prompt.imprimir("2: Listar Aeronaves");
             Prompt.imprimir("3: Adicionar Voo");
-            Prompt.imprimir("4: Adicionar Funcionário");
+            Prompt.imprimir("4: Adicionar Funcionário");/*Pedro - fazendo o registrar do Comandante */
             Prompt.imprimir("5: Deletar Voo");
-            Prompt.imprimir("6: Deletar Funcionário");
+            Prompt.imprimir("6: Deletar Funcionário"); 
             Prompt.imprimir("0: Sair");
             /* 1: ControleAeronave / 2: ControleVoo / 3: Comissario e Comandante (???) / 5: ControleVoo / 6: Comissario e Comandante */
             opcao = Prompt.lerInteiro();
@@ -198,4 +201,6 @@ public class MenuGerente {
                     }
          */
     }
+
+
 }

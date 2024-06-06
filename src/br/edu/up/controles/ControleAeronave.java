@@ -148,10 +148,6 @@ public class ControleAeronave {
     public void adicionarComissario(Comissario comissario,  int contPessoas) {
         this.pessoas[contPessoas] = comissario;
       
-    }*/
-
-  
-
-    
+    }
 
 }
