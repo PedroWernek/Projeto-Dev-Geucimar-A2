@@ -36,9 +36,9 @@ public class MenuPassageiro {
                     rg = Prompt.lerLinha("Informe seu RG: ");
 
                     int idPassagem = Prompt.lerInteiro("Id passagem:");
-                    /* ?? não sei o que fazer com isso */
+                    /* vou definir como vinda da aeronave do voo aqle contador la */
                     int idBagagem = Prompt.lerInteiro("Id bagagem:");
-                    /* ?? */
+                    /* mesma coisa */
 
                     String numAssento = Prompt.lerLinha("Numero assento:");
                     /* todo: listar e selecionar assentos */

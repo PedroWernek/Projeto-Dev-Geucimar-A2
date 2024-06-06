@@ -73,7 +73,7 @@ public class Voo {
     public void reduzirQtdAssentosDisponiveis() {
         qtdAssentosDisponiveis--;
     }
-    
+
     @Override
     public String toString() {
         return "Voo [origem=" + origem + ", destino=" + destino + ", dataVoo=" + dataVoo + ", qtdAssentosDisponiveis="

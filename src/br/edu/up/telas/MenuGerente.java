@@ -29,6 +29,23 @@ public class MenuGerente {
         }
     }
 
+    public static String listarAssentosDisponiveis(int a) {
+        if (voo.get(a).getPassageiros() == null) {
+            return "O voo está vazio.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (index = 0; index < voo.get(a).getAeronave().getQtdAssentos(); index++) {
+                if (voo.get(a).getPassageiros()[index] == null) {
+                    sb.append("Assento ").append(index).append(" Disponível!\n");
+                }
+            }
+    
+            return sb.toString();
+        }
+    }
+
     public static void executar() {
         int opcao = 0;
         int pessoas = 0;
@@ -45,6 +62,7 @@ public class MenuGerente {
             Prompt.imprimir("5: Deletar Voo");
             Prompt.imprimir("6: Deletar Funcionário");
             Prompt.imprimir("0: Sair");
+            /* 1: ControleAeronave / 2: ControleVoo / 3: Comissario e Comandante (???) / 5: ControleVoo / 6: Comissario e Comandante */
             opcao = Prompt.lerInteiro();
 
             switch (opcao) {
