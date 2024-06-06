@@ -63,7 +63,7 @@ public class MenuPassageiro {
 
                     rg = Prompt.lerLinha("Informe seu RG: ");
                     /* TODO: implementar a retirada do passageiro do voo, no controle voo */
-                    ControlePassageiro.
+                    
 
                     break;
                 case 3:

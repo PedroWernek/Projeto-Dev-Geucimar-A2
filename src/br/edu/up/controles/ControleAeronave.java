@@ -15,7 +15,7 @@ public class ControleAeronave {
 
     public ControleAeronave() {
         this.aeronaves = gravadorArquivos.getAeronaves();
-        
+
     }
 
     public void adicionarAeronave(Aeronave aeronave) {

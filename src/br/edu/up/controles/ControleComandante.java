@@ -3,11 +3,17 @@ package br.edu.up.controles;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.up.modelos.Comandante;
+import br.edu.up.modelos.Tripulante;
 
 public class ControleComandante {
     //lista de comandantes
-    List<Comandante> comandantes = new ArrayList<>();
+    public List<Pessoa> comandantes; 
+    
+    public ControleComandante() {
+        this.comandantes = new ArrayList<>();
+    }
+
+
     
     /* todo: add comandante e deletar */
 
