@@ -58,17 +58,16 @@ public class MenuPassageiro {
                     /* o que é isso de pessoas? */
                     break;
                 case 2:
-                    /* todo */
                     MenuGerente.listarVoos();
                     a = Prompt.lerInteiro("Digite o índice do seu voo: ");
 
                     rg = Prompt.lerLinha("Informe seu RG: ");
-
-                    
+                    /* TODO: implementar a retirada do passageiro do voo, no controle voo */
+                    ControlePassageiro.
 
                     break;
                 case 3:
-                    /* todo */
+                    /* todo + refletir se precisa disso! */
                     break;
                 case 0: Prompt.imprimir("Saindo..."); break;
                 default: Prompt.imprimir("Dígito inválido!"); break;
