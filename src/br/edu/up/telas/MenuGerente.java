@@ -3,7 +3,6 @@ package br.edu.up.telas;
 import br.edu.up.util.Prompt;
 
 import java.util.ArrayList;
-import java.util.List;
 import br.edu.up.controles.*;
 import br.edu.up.modelos.*;
 
