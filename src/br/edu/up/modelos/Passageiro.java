@@ -1,11 +1,9 @@
 package br.edu.up.modelos;
 
 public class Passageiro extends Pessoa{
+
     private Passagem passagem;
     private int idBagagem;
-    
-    
-    
 
     public Passageiro(String nome, String rg, Passagem passagem, int idBagagem) {
         super(nome, rg);
