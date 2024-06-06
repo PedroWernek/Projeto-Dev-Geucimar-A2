@@ -1,13 +1,49 @@
 package br.edu.up.telas;
 
 import br.edu.up.util.Prompt;
-import java.util.List;
+
+import java.util.ArrayList;
 import br.edu.up.controles.*;
 import br.edu.up.modelos.*;
 
 public class MenuGerente {
     /* precisa manipular: aeronaves, voos e funcionários (adicionar, editar, excluir, selecionar) */
     static ControleAeronave controleAeronave = new ControleAeronave();
+    static ArrayList<Voo> voo = new ArrayList<Voo>();
+
+    public static String listarVoos() {
+        if (voo == null) {
+            return "Não há voos registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (Voo vooExemplo : voo) {
+                sb.append("Voo ").append(index).append(":\n");
+                sb.append(vooExemplo.toString()).append("\n");
+                index++;
+            }
+    
+            return sb.toString();
+        }
+    }
+
+    public static String listarAssentosDisponiveis(int a) {
+        if (voo.get(a).getPassageiros() == null) {
+            return "O voo está vazio.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (index = 0; index < voo.get(a).getAeronave().getQtdAssentos(); index++) {
+                if (voo.get(a).getPassageiros()[index] == null) {
+                    sb.append("Assento ").append(index).append(" Disponível!\n");
+                }
+            }
+    
+            return sb.toString();
+        }
+    }
 
     public static void executar() {
         int opcao = 0;
@@ -26,6 +62,7 @@ public class MenuGerente {
             Prompt.imprimir("5: Deletar Voo");
             Prompt.imprimir("6: Deletar Funcionário");
             Prompt.imprimir("0: Sair");
+            /* 1: ControleAeronave / 2: ControleVoo / 3: Comissario e Comandante (???) / 5: ControleVoo / 6: Comissario e Comandante */
             opcao = Prompt.lerInteiro();
 
             if (opcao == 0) {
@@ -61,6 +98,8 @@ public class MenuGerente {
                 case 3 :
                 /* blabla coisa importante 
                  * infor p adicionar tripulação abaixo:
+                 * TODO: quando o voo e inicializado, definir a qtd de assentos da aeronave como inguais ao do
+                 * voo, pra gente conseguir retirar assentos disponveis depois 
                 */
                                     
 

@@ -30,6 +30,11 @@ public class ControleAeronave {
     /*public Comandante buscarComandante() {
  
 
+    /* TODO: add aeronave */
+    private Aeronave aeronave;
+    private Pessoa[] pessoas;
+
+    public Comandante buscarComandante() {
         for (Pessoa pessoa : pessoas) {
 
             if(pessoa instanceof Comandante){

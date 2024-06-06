@@ -1,11 +1,8 @@
 package br.edu.up.telas;
 
 import br.edu.up.util.Prompt;
-import java.util.List;
 import br.edu.up.controles.*;
 import br.edu.up.modelos.*;
-
-
 
 public class MenuPassageiro {
 
@@ -30,37 +27,27 @@ public class MenuPassageiro {
 
             switch (opcao) {
                 case 1:
-                    /* adicionar selecionar voo, listar (+ selecionar) quais os assentos disponíveis */
+                    /* todo: selecionar voo (OK), listar (+ selecionar) quais os assentos disponíveis */
+                    MenuGerente.listarVoos();
+                    int a = Prompt.lerInteiro("Digite o índice do voo desejado: ");
+
                     nome = Prompt.lerLinha("Informe seu nome: ");
                     rg = Prompt.lerLinha("Informe seu RG: ");
 
                     int idPassagem = Prompt.lerInteiro("Id passagem:");
-                    /* ?? não sei o que fazer com isso */
+                    /* vou definir como vinda da aeronave do voo aqle contador la */
                     int idBagagem = Prompt.lerInteiro("Id bagagem:");
-                    /* ?? */
+                    /* mesma coisa */
 
                     String numAssento = Prompt.lerLinha("Numero assento:");
-                    /* listar e selecionar assentos */
+                    /* todo: listar e selecionar assentos */
                     String classeAssento = Prompt.lerLinha("Classe assento:");
                     /* e precisa disso? */
-
-                    int dia = Prompt.lerInteiro("Dia:");
-                    int mes = Prompt.lerInteiro("Mes:");
-                    int hora = Prompt.lerInteiro("Hora:");
-                    int minuto = Prompt.lerInteiro("Minuto:");
-                    /* retirar porque a info já consta no voo */
-                    
-                    Data data = new Data();
-                    data.setDia(dia);
-                    data.setMes(mes);
-                    data.setHora(hora);
-                    data.setMinuto(minuto);
 
                     Passagem passagem = new Passagem();
                     passagem.setIdPassagem(idPassagem);
                     passagem.setNumAssento(numAssento);
                     passagem.setClasseAssento(classeAssento);
-                    passagem.setData(data);
 
                     Passageiro passageiroo = new Passageiro(nome, rg, passagem, idBagagem);
         
@@ -71,9 +58,11 @@ public class MenuPassageiro {
                     break;
                 case 2:
                     /* todo */
-                case 3:
                     break;
-                case 0: Prompt.imprimir("Saindo"); break;
+                case 3:
+                    /* todo */
+                    break;
+                case 0: Prompt.imprimir("Saindo..."); break;
                 default: Prompt.imprimir("Dígito inválido!"); break;
             }
         } while(opcao != 0);
