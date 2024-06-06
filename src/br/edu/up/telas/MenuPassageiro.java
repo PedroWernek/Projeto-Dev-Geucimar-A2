@@ -27,7 +27,6 @@ public class MenuPassageiro {
 
             switch (opcao) {
                 case 1:
-                    /* todo: selecionar voo (OK), listar (+ selecionar) quais os assentos disponíveis */
                     MenuGerente.listarVoos();
                     int a = Prompt.lerInteiro("Digite o índice do voo desejado: ");
 
@@ -46,13 +45,17 @@ public class MenuPassageiro {
                     Passagem passagem = new Passagem();
                     passagem.setIdPassagem(idPassagem);
                     passagem.setNumAssento(numAssento);
+                    passagem.setVoo(MenuGerente.voo.get(a));
 
                     Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
+                    MenuGerente.voo.get(a).reduzirQtdAssentosDisponiveis();
+                    /* refletir se é necessário ter a qtd de assentos disponíveis, se isso
+                     * já é definido em espaços vazios no vetor passageiros dentro do voo */
         
                     //controleAeronave.adicionarPassageiro(passageiro, pessoas);
 
-                    pessoas ++;
-
+                    pessoas++;
+                    /* o que é isso de pessoas? */
                     break;
                 case 2:
                     /* todo */
