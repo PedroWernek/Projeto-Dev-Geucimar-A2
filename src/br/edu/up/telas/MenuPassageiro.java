@@ -7,14 +7,14 @@ import br.edu.up.modelos.*;
 public class MenuPassageiro {
 
     /* precisa manipular passagens: comprar, deletar, consultar (baseado em diferenciador, possivelmente cpf) */
-    static ControleAeronave controleAeronave = new ControleAeronave();
+    ControlePassageiro controlePassageiro = new ControlePassageiro();
 
     public static void executar() {
         int opcao;
         int pessoas = 0;
-
         String nome;
-        String rg;     
+        String rg; 
+
         do {
 
             Prompt.separador();
@@ -58,10 +58,16 @@ public class MenuPassageiro {
                     /* o que é isso de pessoas? */
                     break;
                 case 2:
-                    /* todo */
+                    MenuGerente.listarVoos();
+                    a = Prompt.lerInteiro("Digite o índice do seu voo: ");
+
+                    rg = Prompt.lerLinha("Informe seu RG: ");
+                    /* TODO: implementar a retirada do passageiro do voo, no controle voo */
+                    ControlePassageiro.
+
                     break;
                 case 3:
-                    /* todo */
+                    /* todo + refletir se precisa disso! */
                     break;
                 case 0: Prompt.imprimir("Saindo..."); break;
                 default: Prompt.imprimir("Dígito inválido!"); break;
