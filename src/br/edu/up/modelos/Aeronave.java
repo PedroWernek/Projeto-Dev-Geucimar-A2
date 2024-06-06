@@ -5,10 +5,9 @@ public class Aeronave {
     private int idCodigo;
     private String tipo;
     private int qtdAssentos;
-
     private Pessoa[] pessoas;
    
-   
+    
    
    
     public int getIdCodigo() {

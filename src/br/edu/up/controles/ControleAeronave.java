@@ -4,14 +4,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import br.edu.up.daos.GerenciadorDeArquivosAeronaves;
 import br.edu.up.modelos.*;
 
 public class ControleAeronave {
-    private Aeronave aeronave;
-    private Pessoa[] pessoas;
+    /*private Pessoa[] pessoas;*/
+
+    private GerenciadorDeArquivosAeronaves gravadorArquivos = new GerenciadorDeArquivosAeronaves(); 
+    private List<Aeronave> aeronaves;
+
+    public ControleAeronave() {
+        this.aeronaves = gravadorArquivos.getAeronaves();
+        
+    }
+
+    public void adicionarAeronave(Aeronave aeronave) {
+        aeronaves.add(aeronave);
+    }
+
+    public boolean gravar() {
+        return gravadorArquivos.gravar(aeronaves);
+    }
 
 
-    public Comandante buscarComandante() {
+    /*public Comandante buscarComandante() {
  
 
         for (Pessoa pessoa : pessoas) {
@@ -108,18 +124,7 @@ public class ControleAeronave {
        
     }
 
-    public ControleAeronave() {
-      
-        this.pessoas = new Pessoa[10];
-     
-
-    }
-
-    public void adicionarAeronave(Aeronave aeronave) {
-       
-        this.aeronave = aeronave;
-
-    }
+    
 
 
     public void adicionarPassageiro(Passageiro passageiro, int contPessoas) {
@@ -138,7 +143,7 @@ public class ControleAeronave {
     public void adicionarComissario(Comissario comissario,  int contPessoas) {
         this.pessoas[contPessoas] = comissario;
       
-    }
+    }*/
 
   
 

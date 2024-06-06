@@ -20,13 +20,18 @@ public class MenuGerente {
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
             Prompt.imprimir("1: Adicionar Aeronave");
-            Prompt.imprimir("2: Adicionar Voo");
-            Prompt.imprimir("3: Adicionar Funcionário");
+            Prompt.imprimir("2: Listar Aeronaves");
+            Prompt.imprimir("3: Adicionar Voo");
+            Prompt.imprimir("4: Adicionar Funcionário");
             Prompt.imprimir("5: Deletar Voo");
             Prompt.imprimir("6: Deletar Funcionário");
             Prompt.imprimir("0: Sair");
             opcao = Prompt.lerInteiro();
 
+            if (opcao == 0) {
+                break;
+            }
+            
             switch (opcao) {
                 case 1 :
                 Prompt.imprimir("-------------------------\n");
@@ -41,8 +46,19 @@ public class MenuGerente {
                 aeronave.setTipo(tipo);
         
                 controleAeronave.adicionarAeronave(aeronave);
+
+                
+                if (controleAeronave.gravar()) {
+                    System.out.println("Gravado com sucesso");
+                }
+
                 break;
                 case 2 :
+
+                /* edu fazer */
+
+                break;
+                case 3 :
                 /* blabla coisa importante 
                  * infor p adicionar tripulação abaixo:
                 */
@@ -67,7 +83,7 @@ public class MenuGerente {
                     comandante.setRg(rg);
                     comandante.setTotalHorasVoo(totalHorasVoo);
                     
-                    controleAeronave.adicionarComandante(comandante, pessoas); 
+                    //controleAeronave.adicionarComandante(comandante, pessoas); 
 
                     pessoas ++;
 
@@ -83,13 +99,13 @@ public class MenuGerente {
                     comissario.setNome(nome);
                     comissario.setRg(rg);
                     comissario.setIdioma(idiomas);
-                    controleAeronave.adicionarComissario(comissario, pessoas);
+                    //controleAeronave.adicionarComissario(comissario, pessoas);
                    
                     pessoas ++;
 
                     break;
                 }
-                case 3 :
+                
                 case 4 :
                 case 5 :
                 case 6 :

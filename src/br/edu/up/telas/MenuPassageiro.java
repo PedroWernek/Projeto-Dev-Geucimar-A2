@@ -64,7 +64,7 @@ public class MenuPassageiro {
 
                     Passageiro passageiroo = new Passageiro(nome, rg, passagem, idBagagem);
         
-                    controleAeronave.adicionarPassageiro(passageiroo, pessoas);
+                    //controleAeronave.adicionarPassageiro(passageiroo, pessoas);
 
                     pessoas ++;
 
