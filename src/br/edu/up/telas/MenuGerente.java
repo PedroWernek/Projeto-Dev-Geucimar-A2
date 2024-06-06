@@ -1,6 +1,8 @@
 package br.edu.up.telas;
 
 import br.edu.up.util.Prompt;
+
+import java.util.ArrayList;
 import java.util.List;
 import br.edu.up.controles.*;
 import br.edu.up.modelos.*;
@@ -8,6 +10,24 @@ import br.edu.up.modelos.*;
 public class MenuGerente {
     /* precisa manipular: aeronaves, voos e funcionários (adicionar, editar, excluir, selecionar) */
     static ControleAeronave controleAeronave = new ControleAeronave();
+    static ArrayList<Voo> voo = new ArrayList<Voo>();
+
+    public static String listarVoos() {
+        if (voo == null) {
+            return "Não há voos registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (Voo vooExemplo : voo) {
+                sb.append("Voo ").append(index).append(":\n");
+                sb.append(vooExemplo.toString()).append("\n");
+                index++;
+            }
+    
+            return sb.toString();
+        }
+    }
 
     public static void executar() {
         int opcao = 0;
@@ -45,6 +65,8 @@ public class MenuGerente {
                 case 2 :
                 /* blabla coisa importante 
                  * infor p adicionar tripulação abaixo:
+                 * TODO: quando o voo e inicializado, definir a qtd de assentos da aeronave como inguais ao do
+                 * voo, pra gente conseguir retirar assentos disponveis depois 
                 */
                                     
 

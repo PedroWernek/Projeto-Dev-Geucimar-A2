@@ -1,13 +1,12 @@
 package br.edu.up.modelos;
 
 public class Passagem {
+
     private int idPassagem;
     private String numAssento;
     private String classeAssento;
-    private Data data;
+    private Voo voo;
    
-   
-
     public int getIdPassagem() {
         return idPassagem;
     }
@@ -26,13 +25,10 @@ public class Passagem {
     public void setClasseAssento(String classeAssento) {
         this.classeAssento = classeAssento;
     }
-    public Data getData() {
-        return data;
+    public Voo getVoo() {
+        return voo;
     }
-    public void setData(Data dataPassagem) {
-        this.data = dataPassagem;
+    public void setVoo(Voo voo) {
+        this.voo = voo;
     }
-
-    
-    
 }
