@@ -4,7 +4,6 @@ public class Passagem {
 
     private int idPassagem;
     private String numAssento;
-    private String classeAssento;
     private Voo voo;
    
     public int getIdPassagem() {
@@ -18,12 +17,6 @@ public class Passagem {
     }
     public void setNumAssento(String numAssento) {
         this.numAssento = numAssento;
-    }
-    public String getClasseAssento() {
-        return classeAssento;
-    }
-    public void setClasseAssento(String classeAssento) {
-        this.classeAssento = classeAssento;
     }
     public Voo getVoo() {
         return voo;

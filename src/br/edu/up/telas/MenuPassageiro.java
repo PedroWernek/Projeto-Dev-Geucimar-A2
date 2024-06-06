@@ -34,24 +34,22 @@ public class MenuPassageiro {
                     nome = Prompt.lerLinha("Informe seu nome: ");
                     rg = Prompt.lerLinha("Informe seu RG: ");
 
-                    int idPassagem = Prompt.lerInteiro("Id passagem:");
-                    /* vou definir como vinda da aeronave do voo aqle contador la */
-                    int idBagagem = Prompt.lerInteiro("Id bagagem:");
-                    /* mesma coisa */
+                    MenuGerente.voo.get(a).getAeronave().incrementarIdPassagem();
+                    int idPassagem = MenuGerente.voo.get(a).getAeronave().getIdPassagem();
 
-                    String numAssento = Prompt.lerLinha("Numero assento:");
-                    /* todo: listar e selecionar assentos */
-                    String classeAssento = Prompt.lerLinha("Classe assento:");
-                    /* e precisa disso? */
+                    MenuGerente.voo.get(a).getAeronave().incrementarIdBagagem();
+                    int idBagagem = MenuGerente.voo.get(a).getAeronave().getIdBagagem();
+
+                    MenuGerente.listarAssentosDisponiveis(a);
+                    String numAssento = Prompt.lerLinha("Digite o número do assento: ");
 
                     Passagem passagem = new Passagem();
                     passagem.setIdPassagem(idPassagem);
                     passagem.setNumAssento(numAssento);
-                    passagem.setClasseAssento(classeAssento);
 
-                    Passageiro passageiroo = new Passageiro(nome, rg, passagem, idBagagem);
+                    Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
         
-                    //controleAeronave.adicionarPassageiro(passageiroo, pessoas);
+                    //controleAeronave.adicionarPassageiro(passageiro, pessoas);
 
                     pessoas ++;
 

@@ -13,6 +13,7 @@ public class Aeronave {
      * parecida no cinco e no sete [cinco tenho ctz sete n lembro se tirei]
      */
     private int idPassagem;
+    private int idBagagem;
     private int idPassageiro;
     /* o que é idPassageiro */
    
@@ -54,5 +55,14 @@ public class Aeronave {
     }
     public void incrementarIdPassagem() {
         idPassagem++;
+    }
+    public int getIdBagagem() {
+        return idBagagem;
+    }
+    public void setIdBagagem(int idBagagem) {
+        this.idBagagem = idBagagem;
+    }
+    public void incrementarIdBagagem() {
+        idBagagem++;
     }
 }
