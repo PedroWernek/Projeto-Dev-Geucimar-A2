@@ -17,9 +17,14 @@ public class Aeronave {
     private int idPassageiro;
     /* o que é idPassageiro */
    
+
+
+
+    
     public int getIdCodigo() {
         return idCodigo;
     }
+   
     public void setIdCodigo(int idCodigo) {
         this.idCodigo = idCodigo;
     }
@@ -65,4 +70,12 @@ public class Aeronave {
     public void incrementarIdBagagem() {
         idBagagem++;
     }
+
+    @Override
+    public String toString() {
+        return idCodigo+ ";" + qtdAssentos + ";" + tipo;
+    }
+
+
+    
 }

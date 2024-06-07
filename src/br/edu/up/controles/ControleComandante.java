@@ -8,7 +8,7 @@ import br.edu.up.modelos.Pessoa;
 
 public class ControleComandante {
     //lista de comandantes
-    public List<Pessoa> comandantes; 
+    /*public List<Pessoa> comandantes; 
     
     public ControleComandante() {
         this.comandantes = new ArrayList<>();

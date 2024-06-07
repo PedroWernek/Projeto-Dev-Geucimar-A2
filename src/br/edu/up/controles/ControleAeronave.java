@@ -8,7 +8,6 @@ import br.edu.up.daos.GerenciadorDeArquivosAeronaves;
 import br.edu.up.modelos.*;
 
 public class ControleAeronave {
-    /*private Pessoa[] pessoas;*/
 
     private GerenciadorDeArquivosAeronaves gravadorArquivos = new GerenciadorDeArquivosAeronaves(); 
     private List<Aeronave> aeronaves;
@@ -31,123 +30,123 @@ public class ControleAeronave {
  
 
     /* TODO: add aeronave */
-    private Aeronave aeronave;
-    private Pessoa[] pessoas;
+    // private Aeronave aeronave;
+    // private Pessoa[] pessoas;
 
-    public Comandante buscarComandante() {
-        for (Pessoa pessoa : pessoas) {
+    // public Comandante buscarComandante() {
+    //     for (Pessoa pessoa : pessoas) {
 
-            if(pessoa instanceof Comandante){
-                Comandante c = (Comandante) pessoa;
-                return c;
-            }
+    //         if(pessoa instanceof Comandante){
+    //             Comandante c = (Comandante) pessoa;
+    //             return c;
+    //         }
             
-        }
+    //     }
 
-        return null;
+    //     return null;
        
-    }
+    // }
 
-    public List<Comandante> buscarComandantes() {
+    // public List<Comandante> buscarComandantes() {
  
-        List<Comandante> comandantes = new ArrayList<>();
+    //     List<Comandante> comandantes = new ArrayList<>();
         
-        for (Pessoa pessoa : pessoas) {
+    //     for (Pessoa pessoa : pessoas) {
 
-            if(pessoa instanceof Comandante){
-                Comandante c = (Comandante) pessoa;
-                comandantes.add(c);
-            }
+    //         if(pessoa instanceof Comandante){
+    //             Comandante c = (Comandante) pessoa;
+    //             comandantes.add(c);
+    //         }
             
-        }
+    //     }
 
-        return comandantes;
+    //     return comandantes;
        
-    }
-    public Comissario buscarComissario() {
+    // }
+    // public Comissario buscarComissario() {
  
 
-        for (Pessoa pessoa : pessoas) {
+    //     for (Pessoa pessoa : pessoas) {
 
-            if(pessoa instanceof Comissario){
-                Comissario c = (Comissario) pessoa;
-                return c;
-            }
+    //         if(pessoa instanceof Comissario){
+    //             Comissario c = (Comissario) pessoa;
+    //             return c;
+    //         }
             
-        }
+    //     }
 
-        return null;
+    //     return null;
        
-    }
+    // }
 
-    public List<Comissario> buscarComissarios() {
+    // public List<Comissario> buscarComissarios() {
  
-        List<Comissario> comissarios = new ArrayList<>();
+    //     List<Comissario> comissarios = new ArrayList<>();
         
-        for (Pessoa pessoa : pessoas) {
+    //     for (Pessoa pessoa : pessoas) {
 
-            if(pessoa instanceof Comissario){
-                Comissario c = (Comissario) pessoa;
-                comissarios.add(c);
-            }
+    //         if(pessoa instanceof Comissario){
+    //             Comissario c = (Comissario) pessoa;
+    //             comissarios.add(c);
+    //         }
             
-        }
+    //     }
 
-        return comissarios;
+    //     return comissarios;
        
-    }
-    public Passageiro buscarPassageiro() {
+    // }
+    // public Passageiro buscarPassageiro() {
  
 
-        for (Pessoa pessoa : pessoas) {
+    //     for (Pessoa pessoa : pessoas) {
 
-            if(pessoa instanceof Passageiro){
-                Passageiro c = (Passageiro) pessoa;
-                return c;
-            }
+    //         if(pessoa instanceof Passageiro){
+    //             Passageiro c = (Passageiro) pessoa;
+    //             return c;
+    //         }
             
-        }
+    //     }
 
-        return null;
+    //     return null;
        
-    }
+    // }
 
-    public List<Passageiro> buscarPassageiros() {
+    // public List<Passageiro> buscarPassageiros() {
  
-        List<Passageiro> passageiros = new ArrayList<>();
+    //     List<Passageiro> passageiros = new ArrayList<>();
         
-        for (Pessoa pessoa : pessoas) {
+    //     for (Pessoa pessoa : pessoas) {
 
-            if(pessoa instanceof Passageiro){
-                Passageiro c = (Passageiro) pessoa;
-                passageiros.add(c);
-            }
+    //         if(pessoa instanceof Passageiro){
+    //             Passageiro c = (Passageiro) pessoa;
+    //             passageiros.add(c);
+    //         }
             
-        }
+    //     }
 
-        return passageiros;
+    //     return passageiros;
        
-    }
+    // }
 
     
 
 
-    public void adicionarPassageiro(Passageiro passageiro, int contPessoas) {
+    // public void adicionarPassageiro(Passageiro passageiro, int contPessoas) {
     
-        this.pessoas[contPessoas] = passageiro;
+    //     this.pessoas[contPessoas] = passageiro;
 
-    }
+    // }
 
     
     
-    public void adicionarComandante( Comandante comandante,  int contPessoas ) {
-        this.pessoas[contPessoas] = comandante; 
+    // public void adicionarComandante( Comandante comandante,  int contPessoas ) {
+    //     this.pessoas[contPessoas] = comandante; 
             
-    }
+    // }
 
-    public void adicionarComissario(Comissario comissario,  int contPessoas) {
-        this.pessoas[contPessoas] = comissario;
+    // public void adicionarComissario(Comissario comissario,  int contPessoas) {
+    //     this.pessoas[contPessoas] = comissario;
       
-    }
+    // }
 
 }
