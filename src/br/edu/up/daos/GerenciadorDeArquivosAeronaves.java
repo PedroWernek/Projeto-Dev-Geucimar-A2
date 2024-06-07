@@ -17,13 +17,17 @@ public class GerenciadorDeArquivosAeronaves {
 
     public List<Aeronave> getAeronaves() {
         List<Aeronave> listaDeAeronaves = new ArrayList<>();
-       
+
         try {
-            File arquivoLeitura = new File("E:\\Projeto A2 - Geucimar\\Projeto-Engenharia-de-Software---sistema-de-trafego-aereo\\src\\br\\edu\\up\\docs\\aeronaves.csv");
+            // toda a vez que alguém precisar
+            // mudar o caminho comenta ele pra não precisar
+            // ficar reescrevendo - Pedro
+            File arquivoLeitura = new File(
+                    "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/aeronaves.csv");
             Scanner leitor = new Scanner(arquivoLeitura);
 
             header = leitor.nextLine();
-            
+
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine();
                 String[] dadosAeronave = linha.split(";");
@@ -38,12 +42,13 @@ public class GerenciadorDeArquivosAeronaves {
                 aeronave.setQtdAssentos(qtdAssentos);
                 aeronave.setTipo(idTipo);
 
-                
                 listaDeAeronaves.add(aeronave);
 
             }
-        
-        } catch(FileNotFoundException e) {
+
+            leitor.close();
+
+        } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado");
         }
 
@@ -52,9 +57,10 @@ public class GerenciadorDeArquivosAeronaves {
 
     public boolean gravar(List<Aeronave> aeronaves) {
         try {
-            FileWriter arquivoGravar = new FileWriter("E:\\Projeto A2 - Geucimar\\Projeto-Engenharia-de-Software---sistema-de-trafego-aereo\\src\\br\\edu\\up\\docs\\aeronaves.csv");
+            FileWriter arquivoGravar = new FileWriter(
+                    "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/aeronaves.csv");
             PrintWriter gravador = new PrintWriter(arquivoGravar);
-            
+
             gravador.println(header);
 
             for (Aeronave aeronave : aeronaves) {
@@ -64,11 +70,11 @@ public class GerenciadorDeArquivosAeronaves {
             gravador.close();
             return true;
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Não foi possível gravar o arquivo!");
         }
-        
+
         return false;
     }
-    
+
 }

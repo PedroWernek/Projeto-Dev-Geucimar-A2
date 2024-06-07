@@ -14,7 +14,7 @@ public class MenuPassageiro {
 
     public static void executar() {
         int opcao;
-        int pessoas = 0;
+        // int pessoas = 0;
         String nome;
         String rg;
 
@@ -59,7 +59,7 @@ public class MenuPassageiro {
 
                     // controleAeronave.adicionarPassageiro(passageiro, pessoas);
 
-                    pessoas++;
+                    // pessoas++;
                     /* o que é isso de pessoas? */
                     break;
                 case 2:

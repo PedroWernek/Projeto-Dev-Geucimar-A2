@@ -53,7 +53,7 @@ public class MenuGerente {
 
     public static void executar() {
         int opcao = 0;
-        int pessoas = 0;
+        //int pessoas = 0;
 
         String nome;
         String rg;
@@ -132,7 +132,7 @@ public class MenuGerente {
 
                         // controleAeronave.adicionarComandante(comandante, pessoas);
 
-                        pessoas++;
+                        //pessoas++;
 
                         break;
                     } else if (tipoTripulacao == 2) {
@@ -148,7 +148,7 @@ public class MenuGerente {
                         comissario.setIdioma(idiomas);
                         // controleAeronave.adicionarComissario(comissario, pessoas);
 
-                        pessoas++;
+                        //pessoas++;
 
                         break;
                     }
