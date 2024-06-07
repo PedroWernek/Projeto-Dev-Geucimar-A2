@@ -27,5 +27,4 @@ public abstract class Pessoa {
         this.rg = rg;
     }
 
-    
 }

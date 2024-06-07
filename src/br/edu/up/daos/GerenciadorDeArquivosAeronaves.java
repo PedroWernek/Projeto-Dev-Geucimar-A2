@@ -19,9 +19,11 @@ public class GerenciadorDeArquivosAeronaves {
         List<Aeronave> listaDeAeronaves = new ArrayList<>();
 
         try {
-            // toda a vez que alguém precisar
-            // mudar o caminho comenta ele pra não precisar
-            // ficar reescrevendo - Pedro
+            /*
+             * toda a vez que alguém precisar
+             * mudar o caminho comenta ele pra não precisar
+             * ficar reescrevendo - Pedro
+             */
             File arquivoLeitura = new File(
                     "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/aeronaves.csv");
             Scanner leitor = new Scanner(arquivoLeitura);

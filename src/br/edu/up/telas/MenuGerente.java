@@ -12,8 +12,9 @@ public class MenuGerente {
      * excluir, selecionar)
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
-    /* Pedro - criando controle Comandante */
-    static ControleComandante controleComandante = new ControleComandante();
+
+    // ? Pedro - Criando MenuFuncionario
+    static MenuFuncionario menuFuncionario = new MenuFuncionario();
 
     static ArrayList<Voo> voo = new ArrayList<Voo>();
 
@@ -53,7 +54,7 @@ public class MenuGerente {
 
     public static void executar() {
         int opcao = 0;
-        //int pessoas = 0;
+        // int pessoas = 0;
 
         String nome;
         String rg;
@@ -64,9 +65,9 @@ public class MenuGerente {
             Prompt.imprimir("1: Adicionar Aeronave");
             Prompt.imprimir("2: Listar Aeronaves");
             Prompt.imprimir("3: Adicionar Voo");
-            Prompt.imprimir("4: Adicionar Funcionário");/* Pedro - fazendo o registrar do Comandante */
-            Prompt.imprimir("5: Deletar Voo");
-            Prompt.imprimir("6: Deletar Funcionário");
+            Prompt.imprimir("4: Deletar Voo");
+            Prompt.imprimir("5: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
+            Prompt.imprimir("6: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("0: Sair");
             /*
              * 1: ControleAeronave / 2: ControleVoo / 3: Comissario e Comandante (???) / 5:
@@ -132,7 +133,7 @@ public class MenuGerente {
 
                         // controleAeronave.adicionarComandante(comandante, pessoas);
 
-                        //pessoas++;
+                        // pessoas++;
 
                         break;
                     } else if (tipoTripulacao == 2) {
@@ -148,15 +149,25 @@ public class MenuGerente {
                         comissario.setIdioma(idiomas);
                         // controleAeronave.adicionarComissario(comissario, pessoas);
 
-                        //pessoas++;
+                        // pessoas++;
 
                         break;
                     }
 
                 case 4:
+                    break;
                 case 5:
+                    // TODO: estou fazendo um menu só para criar funcionario
+                    /*
+                     * Assim aqui CAUÊ você também cria comissario junto comigo
+                     */
+                    menuFuncionario.mostrar();
+
+                    break;
                 case 6:
+                    break;
                 case 0:
+                    break;
                 default:
                     Prompt.imprimir("Dígito inválido!");
             }

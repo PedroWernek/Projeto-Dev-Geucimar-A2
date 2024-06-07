@@ -25,5 +25,4 @@ public abstract class Tripulante extends Pessoa{
         this.idMatricula = idMatricula;
     }
 
-    
 }
