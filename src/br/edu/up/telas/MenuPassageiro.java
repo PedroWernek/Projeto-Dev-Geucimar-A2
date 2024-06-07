@@ -6,14 +6,17 @@ import br.edu.up.modelos.*;
 
 public class MenuPassageiro {
 
-    /* precisa manipular passagens: comprar, deletar, consultar (baseado em diferenciador, possivelmente cpf) */
+    /*
+     * precisa manipular passagens: comprar, deletar, consultar (baseado em
+     * diferenciador, possivelmente cpf)
+     */
     ControlePassageiro controlePassageiro = new ControlePassageiro();
 
     public static void executar() {
         int opcao;
         int pessoas = 0;
         String nome;
-        String rg; 
+        String rg;
 
         do {
 
@@ -49,10 +52,12 @@ public class MenuPassageiro {
 
                     Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
                     MenuGerente.voo.get(a).reduzirQtdAssentosDisponiveis();
-                    /* refletir se é necessário ter a qtd de assentos disponíveis, se isso
-                     * já é definido em espaços vazios no vetor passageiros dentro do voo */
-        
-                    //controleAeronave.adicionarPassageiro(passageiro, pessoas);
+                    /*
+                     * refletir se é necessário ter a qtd de assentos disponíveis, se isso
+                     * já é definido em espaços vazios no vetor passageiros dentro do voo
+                     */
+
+                    // controleAeronave.adicionarPassageiro(passageiro, pessoas);
 
                     pessoas++;
                     /* o que é isso de pessoas? */
@@ -63,15 +68,18 @@ public class MenuPassageiro {
 
                     rg = Prompt.lerLinha("Informe seu RG: ");
                     /* TODO: implementar a retirada do passageiro do voo, no controle voo */
-                    
 
                     break;
                 case 3:
                     /* todo + refletir se precisa disso! */
                     break;
-                case 0: Prompt.imprimir("Saindo..."); break;
-                default: Prompt.imprimir("Dígito inválido!"); break;
+                case 0:
+                    Prompt.imprimir("Saindo...");
+                    break;
+                default:
+                    Prompt.imprimir("Dígito inválido!");
+                    break;
             }
-        } while(opcao != 0);
+        } while (opcao != 0);
     }
 }
