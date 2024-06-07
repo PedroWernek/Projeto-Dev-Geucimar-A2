@@ -7,12 +7,12 @@ import br.edu.up.modelos.Tripulante;
 
 public class ControleComandante {
     //lista de comandantes
-    public List<Pessoa> comandantes; 
+    /*public List<Pessoa> comandantes; 
     
     public ControleComandante() {
         this.comandantes = new ArrayList<>();
     }
-
+*/
 
     
     /* todo: add comandante e deletar */
