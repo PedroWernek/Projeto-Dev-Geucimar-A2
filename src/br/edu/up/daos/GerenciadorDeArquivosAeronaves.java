@@ -14,6 +14,7 @@ import br.edu.up.modelos.Aeronave;
 public class GerenciadorDeArquivosAeronaves {
 
     public String header;
+    public String nomeDoArquivo = "\"C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/aeronaves.csv\"";
 
     public List<Aeronave> getAeronaves() {
         List<Aeronave> listaDeAeronaves = new ArrayList<>();
@@ -24,8 +25,7 @@ public class GerenciadorDeArquivosAeronaves {
              * mudar o caminho comenta ele pra não precisar
              * ficar reescrevendo - Pedro
              */
-            File arquivoLeitura = new File(
-                    "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/aeronaves.csv");
+            File arquivoLeitura = new File(nomeDoArquivo);
             Scanner leitor = new Scanner(arquivoLeitura);
 
             header = leitor.nextLine();
@@ -59,8 +59,7 @@ public class GerenciadorDeArquivosAeronaves {
 
     public boolean gravar(List<Aeronave> aeronaves) {
         try {
-            FileWriter arquivoGravar = new FileWriter(
-                    "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/aeronaves.csv");
+            FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
             gravador.println(header);

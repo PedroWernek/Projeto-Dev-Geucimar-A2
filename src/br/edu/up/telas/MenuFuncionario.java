@@ -6,8 +6,8 @@ import br.edu.up.util.Prompt;
 
 public class MenuFuncionario {
   /* Pedro - criando controle Comandante */
-  public ControleComandante controleComandante = new ControleComandante();
-  public ControleComissario controleComissario = new ControleComissario();
+  public ControleComandante controleComandante;
+  public ControleComissario controleComissario;
 
   public MenuFuncionario() {
     this.controleComandante = new ControleComandante();
@@ -35,6 +35,7 @@ public class MenuFuncionario {
     }
 
   }
+
   public void adicionarComandante() {
 
     String nome = Prompt.lerLinha("Nome:");
@@ -44,5 +45,13 @@ public class MenuFuncionario {
     int totalHorasVoo = Prompt.lerInteiro("Total de horas de voo:");
 
     controleComandante.adicionarComandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
+
+    if (controleComandante.gravar()) {
+      Prompt.imprimir("Comandante adicionado com sucesso!");
+    } else {
+      Prompt.imprimir("Erro ao adicionar comandante!");
+    }
+
+    Prompt.pressionarEnter();
   }
 }

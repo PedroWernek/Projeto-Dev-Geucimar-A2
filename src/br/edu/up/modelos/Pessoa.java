@@ -1,8 +1,8 @@
 package br.edu.up.modelos;
 
 public abstract class Pessoa {
-    private String nome;
-    private String rg;
+    protected String nome;
+    protected String rg;
     
     
     
@@ -27,4 +27,5 @@ public abstract class Pessoa {
         this.rg = rg;
     }
 
+    public abstract String toCSV();
 }

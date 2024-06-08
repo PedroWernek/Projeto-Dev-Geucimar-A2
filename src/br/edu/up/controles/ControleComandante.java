@@ -11,16 +11,20 @@ public class ControleComandante {
     // gravador de Arquivos
     private GerenciadorDeArquivosComandante gravador;
     // lista de comandantes
-    private List<Pessoa> comandantes;
+    private List<Pessoa> comandantes = new ArrayList<>();
 
     public ControleComandante() {
-        this.comandantes = new ArrayList<>();
         this.gravador = new GerenciadorDeArquivosComandante();
+        this.comandantes = gravador.getComandantes();
     }
 
     public void adicionarComandante(String nome, String rg, int idAeronautica, int idMatricula, int totalHorasVoo) {
         Pessoa comandante = new Comandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
         comandantes.add(comandante);
+    }
+
+    public boolean gravar(){
+        return gravador.gravar(comandantes);
     }
 
     /* todo: add comandante e deletar */

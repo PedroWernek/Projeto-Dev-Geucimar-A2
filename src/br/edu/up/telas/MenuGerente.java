@@ -60,6 +60,7 @@ public class MenuGerente {
         String rg;
 
         do {
+            Prompt.limparConsole();
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
             Prompt.imprimir("1: Adicionar Aeronave");

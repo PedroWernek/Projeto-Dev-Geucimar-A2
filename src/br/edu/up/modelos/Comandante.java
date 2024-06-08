@@ -23,6 +23,7 @@ public class Comandante extends Tripulante{
         return "Comandante [totalHorasVoo=" + totalHorasVoo + ", getNome()=" + getNome() + "]";
     }
     
+    @Override
     public String toCSV() {
         return getNome() + ";" + getRg() + ";" + getIdAeronautica() + ";" + getIdMatricula() + ";" + getTotalHorasVoo();
     }

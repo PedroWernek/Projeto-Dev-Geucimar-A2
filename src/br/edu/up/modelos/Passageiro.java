@@ -27,7 +27,9 @@ public class Passageiro extends Pessoa{
         this.passagem = passagem;
     } 
 
-    
+    public String toCSV(){
+        return nome + ";" + rg + ";" + passagem + ";" + idBagagem;
+    }
 
     
 }
