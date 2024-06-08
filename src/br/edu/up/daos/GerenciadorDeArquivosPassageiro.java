@@ -2,6 +2,9 @@ package br.edu.up.daos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.*;
 import java.util.*;
 import br.edu.up.modelos.Passageiro;
@@ -44,6 +47,7 @@ public class GerenciadorDeArquivosPassageiro {
                 listaDePassageiros.add(passageiro);
 
                 leitor.close();
+                /* verificar se é viável colocar voo */
 
             }
         } catch (FileNotFoundException e) {
@@ -51,5 +55,24 @@ public class GerenciadorDeArquivosPassageiro {
             } 
 
             return listaDePassageiros;
+        }
+
+        public boolean gravar(List<Passageiro> passageiros) {
+            try {
+                FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
+                PrintWriter gravador = new PrintWriter(arquivoGravar);
+
+                gravador.println(header);
+
+                for (Passageiro passageiro : passageiros) {
+                    gravador.println(passageiro.toString());
+                    /* toString ou toCSV? */
+                }
+                gravador.close();
+                return true;
+            } catch (IOException e) {
+                Prompt.imprimir("Não foi possível gravar o arquivo!");
+            }
+            return false;
         }
     }
