@@ -14,7 +14,7 @@ public class MenuFuncionario {
     this.controleComissario = new ControleComissario();
   }
 
-  public void mostrar() {
+  public void adicionarFuncionario() {
     Prompt.imprimir("--------MENU ADICIONAR FUNCIONARIO--------");
     Prompt.imprimir("1- Comandante");
     Prompt.imprimir("2- Comissario");
@@ -30,11 +30,15 @@ public class MenuFuncionario {
         break;
       default:
         Prompt.imprimir("Escolha invalida");
-        mostrar();
+        adicionarFuncionario();
         break;
     }
 
   }
+
+  //TODO fazer Remover Funcionarios
+
+  //TODO fazer ListarFuncionarios
 
   public void adicionarComandante() {
 

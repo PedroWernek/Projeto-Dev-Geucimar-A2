@@ -18,5 +18,5 @@ public class Comissario extends Tripulante{
         this.idioma = idioma;
     }
     
-    
+    //TODO: implementar metodo toCSV para sumir esse erro - PEDRO :)
 }

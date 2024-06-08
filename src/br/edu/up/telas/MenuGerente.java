@@ -169,7 +169,7 @@ public class MenuGerente {
                     /*
                      * Assim aqui CAUÊ você também cria comissario junto comigo
                      */
-                    menuFuncionario.mostrar();
+                    menuFuncionario.adicionarFuncionario();
 
                     break;
                 case 6:
