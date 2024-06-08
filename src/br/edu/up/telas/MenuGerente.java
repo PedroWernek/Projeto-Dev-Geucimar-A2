@@ -13,7 +13,7 @@ public class MenuGerente {
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
 
-    // ? Pedro - Criando MenuFuncionario
+    //=> Pedro - Criando MenuFuncionario
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
 
     static ArrayList<Voo> voo = new ArrayList<Voo>();
