@@ -69,9 +69,14 @@ public class MenuGerente {
             Prompt.imprimir("5: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("6: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("0: Sair");
-            /*
-             * 1: ControleAeronave / 2: ControleVoo / 3: Comissario e Comandante (???) / 5:
-             * ControleVoo / 6: Comissario e Comandante
+
+            /* algm colocou mais funcoes e n mudou as coisas aqui embaixo:
+             * 1. ADICIONAR AERONAVE: ControleAeronave
+             * 2. LISTAR AERONAVES: ControleAeronave
+             * 3. ADD VOO: ControleVoo
+             * 4. DELETAR VOO: ControleVoo
+             * 5. ADD FUNCIONARIO: caue e pedro
+             * 6. DELETAR FUNICONARIO: caue e pedro
              */
             opcao = Prompt.lerInteiro();
 
@@ -112,6 +117,8 @@ public class MenuGerente {
                      * inguais ao do
                      * voo, pra gente conseguir retirar assentos disponveis depois
                      */
+
+                     /* n entendi aqui n era p ser o voo? */
 
                     nome = Prompt.lerLinha("Nome:");
                     rg = Prompt.lerLinha("Rg:");

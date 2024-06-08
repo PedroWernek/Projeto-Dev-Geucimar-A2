@@ -8,13 +8,12 @@ public class MenuPassageiro {
 
     /*
      * precisa manipular passagens: comprar, deletar, consultar (baseado em
-     * diferenciador, possivelmente cpf)
+     * diferenciador, possivelmente rg)
      */
     ControlePassageiro controlePassageiro = new ControlePassageiro();
 
     public static void executar() {
         int opcao;
-        // int pessoas = 0;
         String nome;
         String rg;
 
@@ -56,11 +55,6 @@ public class MenuPassageiro {
                      * refletir se é necessário ter a qtd de assentos disponíveis, se isso
                      * já é definido em espaços vazios no vetor passageiros dentro do voo
                      */
-
-                    // controleAeronave.adicionarPassageiro(passageiro, pessoas);
-
-                    // pessoas++;
-                    /* o que é isso de pessoas? */
                     break;
                 case 2:
                     MenuGerente.listarVoos();

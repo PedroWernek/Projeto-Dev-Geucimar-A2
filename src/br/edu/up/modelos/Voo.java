@@ -2,6 +2,7 @@ package br.edu.up.modelos;
 
 public class Voo {
     private Aeronave aeronave;
+    private String idVoo;
     private String origem;
     private String destino;
     private Comandante comandante;
@@ -10,10 +11,11 @@ public class Voo {
     private Data dataVoo;
     private int qtdAssentosDisponiveis;
 
-    public Voo() {
+    public Voo(Aeronave aeronave2, String idVoo, String origem2, String destino2, Comandante comandante2, Comissario comissario2, Passageiro[] passageiros2, Data dataVoo2, int qtdAssentosDisponiveis2) {
     }
-    public Voo(Aeronave aeronave, String origem, String destino) {
+    public Voo(Aeronave aeronave, String idVoo, String origem, String destino) {
         this.aeronave = aeronave;
+        this.idVoo = idVoo;
         this.origem = origem;
         this.destino = destino;
     }
@@ -22,6 +24,12 @@ public class Voo {
     }
     public void setAeronave(Aeronave aeronave) {
         this.aeronave = aeronave;
+    }
+    public String getIdVoo() {
+        return idVoo;
+    }
+    public void setIdVoo(String idVoo) {
+        this.idVoo = idVoo;
     }
     public String getOrigem() {
         return origem;
@@ -79,5 +87,6 @@ public class Voo {
         return "Voo [origem=" + origem + ", destino=" + destino + ", dataVoo=" + dataVoo + ", qtdAssentosDisponiveis="
                 + qtdAssentosDisponiveis + "]";
     }
+    
 
 }
