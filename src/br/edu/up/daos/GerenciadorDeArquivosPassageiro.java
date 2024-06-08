@@ -7,7 +7,7 @@ import br.edu.up.modelos.Passageiro;
 public class GerenciadorDeArquivosPassageiro {
     
     public String header = "";
-    private String nomeDoArquivo = "C:/Users/Usuário/Documents/Projeto-Engenharia-de-Software---sistema-de-trafego-aereo/src/br/edu/up/docs";
+    private String nomeDoArquivo = "teste";
 
     /* lê os arquivos */
     public List<Passageiro> getPassageiro() {
