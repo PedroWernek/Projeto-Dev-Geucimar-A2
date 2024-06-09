@@ -23,6 +23,20 @@ public class ControleAeronave {
         return gravadorArquivos.gravar(aeronaves);
     }
 
+    public List<Aeronave> getAeronaves() {
+        return aeronaves;
+    }
+
+    public void deletar(int codigoDeletar) {
+        int cont = 0;
+        for (Aeronave aeronave : aeronaves) {
+            if (aeronave.getIdCodigo() == codigoDeletar)  {
+                aeronaves.remove(cont);
+            }
+            cont ++;
+        }
+    }
+
     /*
      * public Comandante buscarComandante() {
      * 

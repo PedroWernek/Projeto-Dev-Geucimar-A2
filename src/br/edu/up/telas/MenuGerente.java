@@ -3,6 +3,8 @@ package br.edu.up.telas;
 import br.edu.up.util.Prompt;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import br.edu.up.controles.*;
 import br.edu.up.modelos.*;
 
@@ -58,17 +60,18 @@ public class MenuGerente {
 
         String nome;
         String rg;
-
+        Prompt.limparConsole();
         do {
-            Prompt.limparConsole();
+            
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
             Prompt.imprimir("1: Adicionar Aeronave");
             Prompt.imprimir("2: Listar Aeronaves");
-            Prompt.imprimir("3: Adicionar Voo");
-            Prompt.imprimir("4: Deletar Voo");
-            Prompt.imprimir("5: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
-            Prompt.imprimir("6: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
+            Prompt.imprimir("3: Deletar Aeronave");
+            Prompt.imprimir("4: Adicionar Voo");
+            Prompt.imprimir("5: Deletar Voo");
+            Prompt.imprimir("6: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
+            Prompt.imprimir("7: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("0: Sair");
 
             /* algm colocou mais funcoes e n mudou as coisas aqui embaixo:
@@ -107,10 +110,32 @@ public class MenuGerente {
                     break;
                 case 2:
 
-                    /* edu fazer */
+                    /* edu fazer LISTAR AERONAVES*/
+                    Prompt.separador();
+                    List<Aeronave> listaDeAeronaves = controleAeronave.getAeronaves();
+                    for (Aeronave aeronaves : listaDeAeronaves) {
+                        System.out.println(aeronaves.getQtdAssentos() +" / "+ aeronaves.getIdCodigo() +" / "+ aeronaves.getTipo());
+                    }
+                   
+                    break;
+
+                case 3:
+                Prompt.separador();
+                String resposta = Prompt.lerLinha("Deseja mesmo deletar? [S - Sim / n / Nao]");
+                if (resposta.toUpperCase().equals("S")) {
+                    int codigoDeletar = Prompt.lerInteiro("Codigo da Aeronave que deseja deletar: ");
+                    controleAeronave.deletar(codigoDeletar);
+                } else if (resposta.toUpperCase().equals("N")) {
+                    break;
+                }
+
+
+                
+                    
+
 
                     break;
-                case 3:
+                case 4:
                     /*
                      * blabla coisa importante
                      * infor p adicionar tripulação abaixo:
@@ -162,9 +187,9 @@ public class MenuGerente {
                         break;
                     }
 
-                case 4:
-                    break;
                 case 5:
+                    break;
+                case 6:
                     // TODO: estou fazendo um menu só para criar funcionario
                     /*
                      * Assim aqui CAUÊ você também cria comissario junto comigo
@@ -172,7 +197,7 @@ public class MenuGerente {
                     menuFuncionario.adicionarFuncionario();
 
                     break;
-                case 6:
+                case 7:
                     break;
                 case 0:
                     break;
