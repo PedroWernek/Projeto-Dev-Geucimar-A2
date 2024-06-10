@@ -47,7 +47,7 @@ public class MenuFuncionario {
 
     switch (escolha) {
       case 1:
-        
+        removerComandante();
         break;
       case 2:
         break;
@@ -69,7 +69,7 @@ public class MenuFuncionario {
 
     switch (escolha) {
       case 1:
-        listarComandantes();
+        removerComandante();
         break;
       case 2:
         break;
@@ -106,6 +106,14 @@ public class MenuFuncionario {
   }
 
   public void removerComandante(){
+    listarComandantes();
+    String rg = Prompt.lerLinha("Digite o RG do comandante que deseja remover:");
 
+    if(controleComandante.remover(rg)){
+      Prompt.imprimir("Comandante removido com sucesso!");
+      controleComandante.gravar();
+    }else{
+      Prompt.imprimir("Erro ao remover comandante!");
+    }
   }
 }

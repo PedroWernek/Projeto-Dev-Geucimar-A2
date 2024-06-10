@@ -15,7 +15,7 @@ public class MenuGerente {
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
 
-    //=> Pedro - Criando MenuFuncionario
+    // => Pedro - Criando MenuFuncionario
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
 
     static ArrayList<Voo> voo = new ArrayList<Voo>();
@@ -62,7 +62,7 @@ public class MenuGerente {
         String rg;
         Prompt.limparConsole();
         do {
-            
+
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
             Prompt.imprimir("1: Adicionar Aeronave");
@@ -71,11 +71,12 @@ public class MenuGerente {
             Prompt.imprimir("4: Adicionar Voo");
             Prompt.imprimir("5: Deletar Voo");
             Prompt.imprimir("6: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
-            Prompt.imprimir("7: Listar Funcionários");/* Pedro - fazendo o listar Funcionarios no menuFuncionarios*/
+            Prompt.imprimir("7: Listar Funcionários");/* Pedro - fazendo o listar Funcionarios no menuFuncionarios */
             Prompt.imprimir("8: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("0: Sair");
 
-            /* algm colocou mais funcoes e n mudou as coisas aqui embaixo:
+            /*
+             * algm colocou mais funcoes e n mudou as coisas aqui embaixo:
              * 1. ADICIONAR AERONAVE: ControleAeronave
              * 2. LISTAR AERONAVES: ControleAeronave
              * 3. ADD VOO: ControleVoo
@@ -111,29 +112,25 @@ public class MenuGerente {
                     break;
                 case 2:
 
-                    /* edu fazer LISTAR AERONAVES*/
+                    /* edu fazer LISTAR AERONAVES */
                     Prompt.separador();
                     List<Aeronave> listaDeAeronaves = controleAeronave.getAeronaves();
                     for (Aeronave aeronaves : listaDeAeronaves) {
-                        System.out.println(aeronaves.getQtdAssentos() +" / "+ aeronaves.getIdCodigo() +" / "+ aeronaves.getTipo());
+                        System.out.println(aeronaves.getQtdAssentos() + " / " + aeronaves.getIdCodigo() + " / "
+                                + aeronaves.getTipo());
                     }
-                   
+
                     break;
 
                 case 3:
-                Prompt.separador();
-                String resposta = Prompt.lerLinha("Deseja mesmo deletar? [S - Sim / n / Nao]");
-                if (resposta.toUpperCase().equals("S")) {
-                    int codigoDeletar = Prompt.lerInteiro("Codigo da Aeronave que deseja deletar: ");
-                    controleAeronave.deletar(codigoDeletar);
-                } else if (resposta.toUpperCase().equals("N")) {
-                    break;
-                }
-
-
-                
-                    
-
+                    Prompt.separador();
+                    String resposta = Prompt.lerLinha("Deseja mesmo deletar? [S - Sim / n / Nao]");
+                    if (resposta.toUpperCase().equals("S")) {
+                        int codigoDeletar = Prompt.lerInteiro("Codigo da Aeronave que deseja deletar: ");
+                        controleAeronave.deletar(codigoDeletar);
+                    } else if (resposta.toUpperCase().equals("N")) {
+                        break;
+                    }
 
                     break;
                 case 4:
@@ -145,7 +142,7 @@ public class MenuGerente {
                      * voo, pra gente conseguir retirar assentos disponveis depois
                      */
 
-                     /* n entendi aqui n era p ser o voo? */
+                    /* n entendi aqui n era p ser o voo? */
 
                     nome = Prompt.lerLinha("Nome:");
                     rg = Prompt.lerLinha("Rg:");
@@ -200,6 +197,9 @@ public class MenuGerente {
                     break;
                 case 7:
                     menuFuncionario.listarFuncionarios();
+                    break;
+                case 8:
+                    menuFuncionario.removerFuncionario();
                     break;
                 case 0:
                     break;

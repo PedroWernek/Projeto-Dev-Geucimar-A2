@@ -49,6 +49,22 @@ public class ControleComandante {
         }
         return listaComandantes.toString();
     }
-    /* todo: listar e deletar */
+    /* todo: deletar */
+
+    public boolean remover(String rg){
+        int i = 0;
+        try{
+            for (Pessoa comandante : comandantes) {
+                if(comandante.getRg().equals(rg)){
+                    comandantes.remove(i);
+                    return true;
+                }
+            i++;
+            }
+        }catch(Exception e){
+        }
+        
+        return false;
+    }
 
 }
