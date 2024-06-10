@@ -18,11 +18,14 @@ public class Comandante extends Tripulante{
         this.totalHorasVoo = totalHorasVoo;
     }
 
+
+    
     @Override
     public String toString() {
-        return "Comandante [totalHorasVoo=" + totalHorasVoo + ", getNome()=" + getNome() + "]";
+        return "Comandante [nome=" + nome + ", rg=" + rg + ", idMatricula=" + idMatricula + ", totalHorasVoo=" + totalHorasVoo + ", idAeronautica=" + idAeronautica
+                + "]";
     }
-    
+
     @Override
     public String toCSV() {
         return getNome() + ";" + getRg() + ";" + getIdAeronautica() + ";" + getIdMatricula() + ";" + getTotalHorasVoo();

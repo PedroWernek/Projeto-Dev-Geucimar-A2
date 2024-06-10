@@ -71,7 +71,8 @@ public class MenuGerente {
             Prompt.imprimir("4: Adicionar Voo");
             Prompt.imprimir("5: Deletar Voo");
             Prompt.imprimir("6: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
-            Prompt.imprimir("7: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
+            Prompt.imprimir("7: Listar Funcionários");/* Pedro - fazendo o listar Funcionarios no menuFuncionarios*/
+            Prompt.imprimir("8: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("0: Sair");
 
             /* algm colocou mais funcoes e n mudou as coisas aqui embaixo:
@@ -198,6 +199,7 @@ public class MenuGerente {
 
                     break;
                 case 7:
+                    menuFuncionario.listarFuncionarios();
                     break;
                 case 0:
                     break;

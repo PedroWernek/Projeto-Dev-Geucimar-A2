@@ -36,9 +36,50 @@ public class MenuFuncionario {
 
   }
 
-  //TODO fazer Remover Funcionarios
+  // TODO fazer Remover Funcionarios
+  public void removerFuncionario() {
+    Prompt.imprimir("--------MENU REMOVER FUNCIONARIO--------");
+    Prompt.imprimir("1- Comandante");
+    Prompt.imprimir("2- Comissario");
+    Prompt.imprimir("------------------------------------------");
 
-  //TODO fazer ListarFuncionarios
+    int escolha = Prompt.lerInteiro();
+
+    switch (escolha) {
+      case 1:
+        
+        break;
+      case 2:
+        break;
+      default:
+        Prompt.imprimir("Escolha invalida");
+        removerFuncionario();
+        break;
+    }
+
+  }
+  // TODO fazer ListarFuncionarios
+  public void listarFuncionarios() {
+    Prompt.imprimir("--------MENU REMOVER FUNCIONARIO--------");
+    Prompt.imprimir("1- Comandante");
+    Prompt.imprimir("2- Comissario");
+    Prompt.imprimir("------------------------------------------");
+
+    int escolha = Prompt.lerInteiro();
+
+    switch (escolha) {
+      case 1:
+        listarComandantes();
+        break;
+      case 2:
+        break;
+      default:
+        Prompt.imprimir("Escolha invalida");
+        listarFuncionarios();
+        break;
+    }
+
+  }
 
   public void adicionarComandante() {
 
@@ -48,7 +89,7 @@ public class MenuFuncionario {
     int idMatricula = Prompt.lerInteiro("Id matricula:");
     int totalHorasVoo = Prompt.lerInteiro("Total de horas de voo:");
 
-    controleComandante.adicionarComandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
+    controleComandante.adicionar(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
 
     if (controleComandante.gravar()) {
       Prompt.imprimir("Comandante adicionado com sucesso!");
@@ -56,6 +97,15 @@ public class MenuFuncionario {
       Prompt.imprimir("Erro ao adicionar comandante!");
     }
 
+    Prompt.linhaEmBranco();
     Prompt.pressionarEnter();
+  }
+
+  public void listarComandantes(){
+    Prompt.imprimir(controleComandante.listar());
+  }
+
+  public void removerComandante(){
+
   }
 }

@@ -17,16 +17,38 @@ public class ControleComandante {
         this.gravador = new GerenciadorDeArquivosComandante();
         this.comandantes = gravador.getComandantes();
     }
-
-    public void adicionarComandante(String nome, String rg, int idAeronautica, int idMatricula, int totalHorasVoo) {
+    /**
+     * Aqui estou criando um novo comandante
+     * para ser adicionado na lista "comandantes"
+     */
+    public void adicionar(String nome, String rg, int idAeronautica, int idMatricula, int totalHorasVoo) {
         Pessoa comandante = new Comandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
         comandantes.add(comandante);
     }
-
+    /**
+     * Aqui estou gravando todos os Comandantes
+     * do da lista "comandantes"
+     * no arquivo "comandantes.csv"
+     * e esperando um sinal TRUE na função
+     */
     public boolean gravar(){
         return gravador.gravar(comandantes);
     }
 
-    /* todo: add comandante e deletar */
+    /**
+     * Listando todos os comandantes
+     * da lista "comandantes"
+     * @return String
+     */
+    public String listar() {
+        StringBuilder listaComandantes = new StringBuilder();
+        int i = 1;
+        for(Pessoa comandante : comandantes){
+            listaComandantes.append(i + " - ").append(comandante.toString()).append("\n");
+            i++;
+        }
+        return listaComandantes.toString();
+    }
+    /* todo: listar e deletar */
 
 }

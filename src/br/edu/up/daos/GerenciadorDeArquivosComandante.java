@@ -19,7 +19,10 @@ public class GerenciadorDeArquivosComandante {
   public String nomeArquivo = "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/comandantes.csv";
 
   public List<Pessoa> getComandantes() {
-
+    /**
+     * Aqui estou pegando todos os Comandantes
+     * do arquivo "comandantes.csv"
+     */
     List<Pessoa> listaDeComandantes = new ArrayList<>();
 
     try {
@@ -48,7 +51,12 @@ public class GerenciadorDeArquivosComandante {
     }
     return listaDeComandantes;
   }
-
+    /**
+     * Aqui estou gravando todos os Comandantes
+     * do da lista "comandantes"
+     * no arquivo "comandantes.csv"
+     * e esperando um sinal TRUE na função
+     */
   public boolean gravar(List<Pessoa> listaComandantes) {
 
     try {

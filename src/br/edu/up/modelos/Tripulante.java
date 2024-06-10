@@ -1,8 +1,8 @@
 package br.edu.up.modelos;
 
 public abstract class Tripulante extends Pessoa{
-    private int idAeronautica;
-    private int idMatricula;
+    protected int idAeronautica;
+    protected int idMatricula;
     
     
     
