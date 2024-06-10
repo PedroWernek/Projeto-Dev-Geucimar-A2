@@ -127,6 +127,7 @@ public class MenuGerente {
                 /* edu REMOVER AERONAVES */
                     Prompt.separador();
                     String resposta = Prompt.lerLinha("Deseja mesmo deletar? [S - Sim / n / Nao]");
+                    
                     if (resposta.toUpperCase().equals("S")) {
                         int codigoDeletar = Prompt.lerInteiro("Codigo da Aeronave que deseja deletar: ");
                         if (controleAeronave.deletar(codigoDeletar)) {
