@@ -1,6 +1,7 @@
 package br.edu.up.controles;
 
 import java.util.List;
+import java.util.Iterator;
 
 import br.edu.up.daos.GerenciadorDeArquivosAeronaves;
 import br.edu.up.modelos.*;
@@ -27,132 +28,24 @@ public class ControleAeronave {
         return aeronaves;
     }
 
-    public void deletar(int codigoDeletar) {
-        int cont = 0;
-        for (Aeronave aeronave : aeronaves) {
-            if (aeronave.getIdCodigo() == codigoDeletar)  {
-                aeronaves.remove(cont);
-            }
-            cont ++;
-        }
+    public boolean AtualizarCsv() {
+        return gravadorArquivos.gravar(aeronaves);
     }
 
-    /*
-     * public Comandante buscarComandante() {
-     * 
-     * 
-     * /* TODO: add aeronave
-     */
-    // private Aeronave aeronave;
-    // private Pessoa[] pessoas;
-
-    // public Comandante buscarComandante() {
-    // for (Pessoa pessoa : pessoas) {
-
-    // if(pessoa instanceof Comandante){
-    // Comandante c = (Comandante) pessoa;
-    // return c;
-    // }
-
-    // }
-
-    // return null;
-
-    // }
-
-    // public List<Comandante> buscarComandantes() {
-
-    // List<Comandante> comandantes = new ArrayList<>();
-
-    // for (Pessoa pessoa : pessoas) {
-
-    // if(pessoa instanceof Comandante){
-    // Comandante c = (Comandante) pessoa;
-    // comandantes.add(c);
-    // }
-
-    // }
-
-    // return comandantes;
-
-    // }
-    // public Comissario buscarComissario() {
-
-    // for (Pessoa pessoa : pessoas) {
-
-    // if(pessoa instanceof Comissario){
-    // Comissario c = (Comissario) pessoa;
-    // return c;
-    // }
-
-    // }
-
-    // return null;
-
-    // }
-
-    // public List<Comissario> buscarComissarios() {
-
-    // List<Comissario> comissarios = new ArrayList<>();
-
-    // for (Pessoa pessoa : pessoas) {
-
-    // if(pessoa instanceof Comissario){
-    // Comissario c = (Comissario) pessoa;
-    // comissarios.add(c);
-    // }
-
-    // }
-
-    // return comissarios;
-
-    // }
-    // public Passageiro buscarPassageiro() {
-
-    // for (Pessoa pessoa : pessoas) {
-
-    // if(pessoa instanceof Passageiro){
-    // Passageiro c = (Passageiro) pessoa;
-    // return c;
-    // }
-
-    // }
-
-    // return null;
-
-    // }
-
-    // public List<Passageiro> buscarPassageiros() {
-
-    // List<Passageiro> passageiros = new ArrayList<>();
-
-    // for (Pessoa pessoa : pessoas) {
-
-    // if(pessoa instanceof Passageiro){
-    // Passageiro c = (Passageiro) pessoa;
-    // passageiros.add(c);
-    // }
-
-    // }
-
-    // return passageiros;
-
-    // }
-
-    // public void adicionarPassageiro(Passageiro passageiro, int contPessoas) {
-
-    // this.pessoas[contPessoas] = passageiro;
-
-    // }
-
-    // public void adicionarComandante( Comandante comandante, int contPessoas ) {
-    // this.pessoas[contPessoas] = comandante;
-
-    // }
-
-    // public void adicionarComissario(Comissario comissario, int contPessoas) {
-    // this.pessoas[contPessoas] = comissario;
-
-    // }
-
+    public boolean deletar(int codigoDeletar) {
+        try {
+            Iterator<Aeronave> iterator = aeronaves.iterator();
+            while (iterator.hasNext()) {
+                Aeronave aeronave = iterator.next();
+                if (aeronave.getIdCodigo() == codigoDeletar) {
+                    iterator.remove();
+                    
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao deletar a aeronave");
+        }
+        return false;
+    }
 }

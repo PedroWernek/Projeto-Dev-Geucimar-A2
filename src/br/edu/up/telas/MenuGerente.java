@@ -92,6 +92,7 @@ public class MenuGerente {
 
             switch (opcao) {
                 case 1:
+                /* edu adicionar AERONAVES */
                     Prompt.imprimir("-------------------------\n");
                     int idCodigo = Prompt.lerInteiro("Codigo da aeronave: ");
                     String tipo = Prompt.lerLinha("Tipo: ");
@@ -112,22 +113,28 @@ public class MenuGerente {
                     break;
                 case 2:
 
-                    /* edu fazer LISTAR AERONAVES */
+                    /* edu LISTAR AERONAVES */
                     Prompt.separador();
                     List<Aeronave> listaDeAeronaves = controleAeronave.getAeronaves();
                     for (Aeronave aeronaves : listaDeAeronaves) {
-                        System.out.println(aeronaves.getQtdAssentos() + " / " + aeronaves.getIdCodigo() + " / "
+                        System.out.println(aeronaves.getIdCodigo() + " / " + aeronaves.getQtdAssentos() + " / "
                                 + aeronaves.getTipo());
                     }
 
                     break;
 
                 case 3:
+                /* edu REMOVER AERONAVES */
                     Prompt.separador();
                     String resposta = Prompt.lerLinha("Deseja mesmo deletar? [S - Sim / n / Nao]");
                     if (resposta.toUpperCase().equals("S")) {
                         int codigoDeletar = Prompt.lerInteiro("Codigo da Aeronave que deseja deletar: ");
-                        controleAeronave.deletar(codigoDeletar);
+                        if (controleAeronave.deletar(codigoDeletar)) {
+                            controleAeronave.gravar();
+                            System.out.println("Aeronave removida com sucesso!");
+                        } else {
+                            System.out.println("Aeronave nao encontrada!");
+                        }
                     } else if (resposta.toUpperCase().equals("N")) {
                         break;
                     }
