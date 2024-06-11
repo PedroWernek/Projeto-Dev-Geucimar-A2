@@ -1,5 +1,7 @@
 package br.edu.up.modelos;
 
+import java.util.Arrays;
+
 public class Voo {
     private Aeronave aeronave;
     private String idVoo;
@@ -11,13 +13,23 @@ public class Voo {
     private Data dataVoo;
     private int qtdAssentosDisponiveis;
 
-    public Voo(Aeronave aeronave2, String idVoo, String origem2, String destino2, Comandante comandante2, Comissario comissario2, Passageiro[] passageiros2, Data dataVoo2, int qtdAssentosDisponiveis2) {
+    public Voo() {
     }
-    public Voo(Aeronave aeronave, String idVoo, String origem, String destino) {
+
+
+    
+    
+    public Voo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante,
+            Comissario comissario, Passageiro[] passageiros, Data dataVoo, int qtdAssentosDisponiveis) {
         this.aeronave = aeronave;
         this.idVoo = idVoo;
         this.origem = origem;
         this.destino = destino;
+        this.comandante = comandante;
+        this.comissario = comissario;
+        this.passageiros = passageiros;
+        this.dataVoo = dataVoo;
+        this.qtdAssentosDisponiveis = qtdAssentosDisponiveis;
     }
     public Aeronave getAeronave() {
         return aeronave;
@@ -82,11 +94,18 @@ public class Voo {
         qtdAssentosDisponiveis--;
     }
 
+    
+    
     @Override
     public String toString() {
-        return "Voo [origem=" + origem + ", destino=" + destino + ", dataVoo=" + dataVoo + ", qtdAssentosDisponiveis="
+        return "Voo [aeronave=" + aeronave + ", idVoo=" + idVoo + ", origem=" + origem + ", destino=" + destino
+                + ", comandante=" + comandante + ", comissario=" + comissario + ", passageiros="
+                + Arrays.toString(passageiros) + ", dataVoo=" + dataVoo + ", qtdAssentosDisponiveis="
                 + qtdAssentosDisponiveis + "]";
     }
-    
+ 
+    public String toCSV() {
+        return getAeronave() + ";" + getIdVoo() + ";" + getOrigem() + ";" + getDestino() + ";" + getComandante() + ";" + getComissario() + ";" + Arrays.toString(passageiros) + ";" + getDataVoo() + ";" + getQtdAssentosDisponiveis();
+    }
 
 }
