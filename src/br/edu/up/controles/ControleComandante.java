@@ -67,4 +67,7 @@ public class ControleComandante {
         return false;
     }
 
+    public List<Pessoa> getComandantes(){
+        return comandantes;
+    }
 }

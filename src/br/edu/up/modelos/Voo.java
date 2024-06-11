@@ -7,18 +7,18 @@ public class Voo {
     private String idVoo;
     private String origem;
     private String destino;
-    private Comandante comandante;
-    private Comissario comissario;
-    private Data dataVoo;
+    private Pessoa comandante;
+    private Pessoa comissario;
+    private String dataVoo;
     private int qtdAssentosDisponiveis;
-
+    public Pessoa[] passageiros;
     public Voo() {
     
     
     }
     
-    public Voo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante,
-            Comissario comissario, Data dataVoo, int qtdAssentosDisponiveis) {
+    public Voo(Aeronave aeronave, String idVoo, String origem, String destino, Pessoa comandante,
+    Pessoa comissario, String dataVoo, int qtdAssentosDisponiveis) {
         this.aeronave = aeronave;
         this.idVoo = idVoo;
         this.origem = origem;
@@ -52,28 +52,28 @@ public class Voo {
     public void setDestino(String destino) {
         this.destino = destino;
     }
-    public Comandante getComandante() {
+    public Pessoa getComandante() {
         return comandante;
     }
-    public void setComandante(Comandante comandante) {
+    public void setComandante(Pessoa comandante) {
         this.comandante = comandante;
     }
-    public Comissario getComissario() {
+    public Pessoa getComissario() {
         return comissario;
     }
-    public void setComissario(Comissario comissario) {
+    public void setComissario(Pessoa comissario) {
         this.comissario = comissario;
     }
-    public Passageiro[] getPassageiros() {
+    public Pessoa[] getPassageiros() {
         return passageiros;
     }
-    public void setPassageiros(Passageiro[] passageiros) {
+    public void setPassageiros(Pessoa[] passageiros) {
         this.passageiros = passageiros;
     }
-    public Data getDataVoo() {
+    public String getDataVoo() {
         return dataVoo;
     }
-    public void setDataVoo(Data dataVoo) {
+    public void setDataVoo(String dataVoo) {
         this.dataVoo = dataVoo;
     }
     public int getQtdAssentosDisponiveis() {
@@ -102,7 +102,7 @@ public class Voo {
     }
  
     public String toCSV() {
-        return getAeronave() + ";" + getIdVoo() + ";" + getOrigem() + ";" + getDestino() + ";" + getComandante() + ";" + getComissario() + ";" + Arrays.toString(passageiros) + ";" + getDataVoo() + ";" + getQtdAssentosDisponiveis();
+        return aeronave.getIdCodigo() + ";" + getIdVoo() + ";" + getOrigem() + ";" + getDestino() + ";" + getComandante().getRg() + ";" + getComissario().getRg() + ";" + getDataVoo() + ";" + getQtdAssentosDisponiveis();
     }
 
 }

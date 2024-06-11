@@ -5,7 +5,9 @@ public abstract class Pessoa {
     protected String rg;
     
     
-    
+    public Pessoa(){
+        
+    }
     public Pessoa(String nome, String rg) {
         this.nome = nome;
         this.rg = rg;

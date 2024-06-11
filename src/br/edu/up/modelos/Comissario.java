@@ -4,7 +4,10 @@ public class Comissario extends Tripulante{
     private String idioma;
 
     
+    public Comissario(){
 
+    }
+    
     public Comissario(String nome, String rg, int idAeronautica, int idMatricula, String idioma) {
         super(nome, rg, idAeronautica, idMatricula);
         this.idioma = idioma;

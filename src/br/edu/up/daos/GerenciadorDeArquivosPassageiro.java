@@ -18,7 +18,7 @@ public class GerenciadorDeArquivosPassageiro {
 
     /* encontra partes em comum do caminho já que os computadores tem caminhos diferentes */
     public GerenciadorDeArquivosPassageiro() {
-        Path caminhoRelativo = Paths.get("src", "br", "edu", "up", "docs", "GerenciadorDeArquivosPassageiro");
+        Path caminhoRelativo = Paths.get("src", "br", "edu", "up", "docs", "passageiros.csv");
         nomeDoArquivo = caminhoRelativo.toAbsolutePath().toString();
     }
 

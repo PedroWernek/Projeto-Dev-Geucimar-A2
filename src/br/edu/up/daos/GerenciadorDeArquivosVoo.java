@@ -11,7 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import br.edu.up.util.Prompt;
-
+import br.edu.up.controles.ControleAeronave;
+import br.edu.up.controles.ControleComandante;
+import br.edu.up.controles.ControleComissario;
+import br.edu.up.modelos.Aeronave;
+import br.edu.up.modelos.Comandante;
+import br.edu.up.modelos.Comissario;
+import br.edu.up.modelos.Pessoa;
 import br.edu.up.modelos.Voo;
 
 public class GerenciadorDeArquivosVoo {
@@ -24,8 +30,8 @@ public class GerenciadorDeArquivosVoo {
         nomeDoArquivo = caminhoArquivo.toAbsolutePath().toString();
     }
 
-    public List<Voo> getVoos() {
-        List<Voo> listaVoos = new ArrayList();
+    public List<Voo> getVoos(ControleAeronave cAeronaves, ControleComandante cComandante, ControleComissario cComissario) {
+        List<Voo> listaVoos = new ArrayList<>();
 
         try {
             File arquivoLeitura = new File(nomeDoArquivo);
@@ -37,17 +43,42 @@ public class GerenciadorDeArquivosVoo {
                 String linha = leitor.nextLine();
                 String[] dadosVoo = linha.split(";");
 
-                String aeronave = dadosVoo[0];
+                int idAeronave = Integer.parseInt(dadosVoo[0]);
                 String idVoo = dadosVoo[1];
                 String origem = dadosVoo[2];
                 String destino = dadosVoo[3];
-                String comandante = dadosVoo[4];
-                String comissario = dadosVoo[5];
+                String rgComandante = dadosVoo[4];
+                String rgComissario = dadosVoo[5];
                 String dataVoo = dadosVoo[6];
-                String qtdAssentosDisponiveis = dadosVoo[7];
+                int qtdAssentosDisponiveis = Integer.parseInt(dadosVoo[7]);
 
-                Voo Voos = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, passageiro, dataVoo,
-                        qtdAssentosDisponiveis);
+                Aeronave aeronave = new Aeronave();
+                Pessoa comandante = new Comandante();
+                Pessoa comissario = new Comissario();
+
+                //achando aeronave dentro da lista aeronaves
+                for (Aeronave aeronaveT : cAeronaves.getAeronaves()) {
+                    if(idAeronave == aeronaveT.getIdCodigo()){
+                        aeronave = aeronaveT;
+                        break;
+                    }
+                }
+                //achando comandante dentro da lista comandantes
+                for (Pessoa comandanteT : cComandante.getComandantes()){
+                    if(rgComandante == comandanteT.getRg()){
+                        comandante = comandanteT;
+                        break;
+                    }
+                }
+                //achando comissario dentro da lista comissarios
+                for(Pessoa comissarioT : cComissario.getComissarios()){
+                    if(rgComissario == comissarioT.getRg()){
+                        comissario = comissarioT;
+                        break;
+                    }
+                }
+
+                Voo Voos = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, dataVoo, qtdAssentosDisponiveis);
 
                 listaVoos.add(Voos);
 

@@ -66,4 +66,8 @@ public class ControleAeronave {
         }
         return false;
     }
+
+    public List<Aeronave> getaAeronaves(){
+        return aeronaves;
+    }
 }

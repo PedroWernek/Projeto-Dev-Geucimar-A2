@@ -14,6 +14,7 @@ public class MenuGerente {
      * excluir, selecionar)
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
+    static ControleVoo controleVoo = new ControleVoo();
 
     // => Pedro - Criando MenuFuncionario
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
@@ -74,7 +75,7 @@ public class MenuGerente {
             Prompt.imprimir("7: Listar Funcionários");/* Pedro - fazendo o listar Funcionarios no menuFuncionarios */
             Prompt.imprimir("8: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("0: Sair");
-
+            
             /*
              * algm colocou mais funcoes e n mudou as coisas aqui embaixo:
              * 1. ADICIONAR AERONAVE: ControleAeronave
@@ -161,7 +162,7 @@ public class MenuGerente {
                 Aeronave aeronaveVoo = new Aeronave();
 
                 // 5. adicionar dados
-                controleAeronave.selecionar(codigoEscolhido)
+                controleAeronave.selecionar(codigoEscolhido);
                 
                 // aeronaveVoo.setIdCodigo(idCodigo);
                 // aeronaveVoo.setQtdAssentos(qtdAssentos);

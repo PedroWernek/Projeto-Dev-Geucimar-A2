@@ -5,6 +5,9 @@ public abstract class Tripulante extends Pessoa{
     protected int idMatricula;
     
     
+    public Tripulante(){
+
+    }
     
     public Tripulante(String nome, String rg, int idAeronautica, int idMatricula) {
         super(nome, rg);
