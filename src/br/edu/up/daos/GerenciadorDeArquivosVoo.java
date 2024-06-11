@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,11 +15,16 @@ import br.edu.up.util.Prompt;
 import br.edu.up.modelos.Voo;
 
 public class GerenciadorDeArquivosVoo {
-    
+
     public String header = "";
     private String nomeDoArquivo;
 
-    public List<Voo> getVoos(){
+    public GerenciadorDeArquivosVoo() {
+        Path caminhoArquivo = Paths.get("src", "br", "edu", "up", "docs", "voos.csv");
+        nomeDoArquivo = caminhoArquivo.toAbsolutePath().toString();
+    }
+
+    public List<Voo> getVoos() {
         List<Voo> listaVoos = new ArrayList();
 
         try {
@@ -39,9 +46,8 @@ public class GerenciadorDeArquivosVoo {
                 String dataVoo = dadosVoo[6];
                 String qtdAssentosDisponiveis = dadosVoo[7];
 
-                Voo Voos = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, dataVoo, qtdAssentosDisponiveis);
-                
-                
+                Voo Voos = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, passageiro, dataVoo,
+                        qtdAssentosDisponiveis);
 
                 listaVoos.add(Voos);
 
@@ -49,17 +55,18 @@ public class GerenciadorDeArquivosVoo {
             }
         } catch (FileNotFoundException e) {
             Prompt.imprimir("Arquivo não encontrado!");
-        } return listaVoos;
+        }
+        return listaVoos;
     }
 
-    public boolean gravar(List<Voo> voos){
+    public boolean gravar(List<Voo> voos) {
         try {
             FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
             gravador.println(header);
 
-            for (Voo voo : voos){
+            for (Voo voo : voos) {
                 gravador.println(voo.toCSV());
             }
             gravador.close();
