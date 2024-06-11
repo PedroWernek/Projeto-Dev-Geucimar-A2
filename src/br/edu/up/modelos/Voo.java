@@ -14,10 +14,9 @@ public class Voo {
     private int qtdAssentosDisponiveis;
 
     public Voo() {
-    }
-
-
     
+    
+    }
     
     public Voo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante,
             Comissario comissario, Passageiro[] passageiros, Data dataVoo, int qtdAssentosDisponiveis) {

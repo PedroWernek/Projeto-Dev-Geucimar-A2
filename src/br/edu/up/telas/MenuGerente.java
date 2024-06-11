@@ -141,57 +141,30 @@ public class MenuGerente {
                     }
 
                     break;
+                
+              
+                
                 case 4:
-                    /*
-                     * blabla coisa importante
-                     * infor p adicionar tripulação abaixo:
-                     * TODO: quando o voo e inicializado, definir a qtd de assentos da aeronave como
-                     * inguais ao do
-                     * voo, pra gente conseguir retirar assentos disponveis depois
-                     */
+                // 1. listar as aeronaves;
+                List<Aeronave> listaDeAeronavesVoo = controleAeronave.getAeronaves();
+                for (Aeronave aeronaves : listaDeAeronavesVoo) {
+                    System.out.println(aeronaves.getIdCodigo() + " / " + aeronaves.getQtdAssentos() + " / "
+                            + aeronaves.getTipo());
+                }
+                // 2. escolher uma pelo codigo dela;
+                int codigoEscolhido = Prompt.lerInteiro("Digite o codigo da aeronave que deseja escolher:");
 
-                    /* n entendi aqui n era p ser o voo? */
+                // 3. trazer os dados idcodigo, qtdassentos e tipo da aeronave selecionada;
+                System.out.println(controleAeronave.selecionar(codigoEscolhido));
 
-                    nome = Prompt.lerLinha("Nome:");
-                    rg = Prompt.lerLinha("Rg:");
-                    int tipoTripulacao = Prompt.lerInteiro("Qual tripulante [1 - Comandante / 2 - Comissário]:");
-                    int idAeronautica = Prompt.lerInteiro("Id aeronautica: ");
-                    int idMatricula = Prompt.lerInteiro("Id matricula: ");
+                // 3. declarar aeronave para depois adicionar dados a ela
+                Aeronave aeronaveVoo = new Aeronave();
 
-                    if (tipoTripulacao == 1) {
-
-                        int totalHorasVoo = Prompt.lerInteiro("Total de horas de voo: ");
-
-                        Comandante comandante = new Comandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
-
-                        comandante.setIdAeronautica(idAeronautica);
-                        comandante.setIdMatricula(idMatricula);
-                        comandante.setNome(nome);
-                        comandante.setRg(rg);
-                        comandante.setTotalHorasVoo(totalHorasVoo);
-
-                        // controleAeronave.adicionarComandante(comandante, pessoas);
-
-                        // pessoas++;
-
-                        break;
-                    } else if (tipoTripulacao == 2) {
-
-                        String idiomas = Prompt.lerLinha("idiomas fluentes: ");
-
-                        Comissario comissario = new Comissario(nome, rg, idAeronautica, idMatricula, idiomas);
-
-                        comissario.setIdAeronautica(idAeronautica);
-                        comissario.setIdMatricula(idMatricula);
-                        comissario.setNome(nome);
-                        comissario.setRg(rg);
-                        comissario.setIdioma(idiomas);
-                        // controleAeronave.adicionarComissario(comissario, pessoas);
-
-                        // pessoas++;
-
-                        break;
-                    }
+                // aeronaveVoo.setIdCodigo(idCodigo);
+                // aeronaveVoo.setQtdAssentos(qtdAssentos);
+                // aeronaveVoo.setTipo(tipo);
+                break;
+                    
 
                 case 5:
                     break;

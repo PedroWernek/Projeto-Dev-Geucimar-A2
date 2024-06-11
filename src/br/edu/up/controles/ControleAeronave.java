@@ -32,6 +32,24 @@ public class ControleAeronave {
         return gravadorArquivos.gravar(aeronaves);
     }
 
+    public String selecionar(int codigoSelecionar){
+        int i = 0;
+        try{
+            for (Aeronave aeronave : aeronaves) {
+                if(aeronave.getIdCodigo() == codigoSelecionar){
+                 
+                    return aeronave.getIdCodigo() + "," + aeronave.getQtdAssentos() + "," + aeronave.getTipo();
+                }
+            i++;
+            }
+        }catch(Exception e){
+            ;
+        }
+        return "Erro";
+        
+    }
+
+
     public boolean deletar(int codigoDeletar) {
         try {
             Iterator<Aeronave> iterator = aeronaves.iterator();

@@ -15,7 +15,7 @@ public class Aeronave {
     private int idPassagem;
     private int idBagagem;
     private int idPassageiro;
-    /* o que é idPassageiro */
+   
    
 
 

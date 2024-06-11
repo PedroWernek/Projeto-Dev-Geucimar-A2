@@ -36,7 +36,6 @@ public class GerenciadorDeArquivosVoo {
                 String destino = dadosVoo[3];
                 String comandante = dadosVoo[4];
                 String comissario = dadosVoo[5];
-                //int qtdPassageiros = 
                 String passageiro = dadosVoo[6];
                 String dataVoo = dadosVoo[7];
                 String qtdAssentosDisponiveis = dadosVoo[8];
