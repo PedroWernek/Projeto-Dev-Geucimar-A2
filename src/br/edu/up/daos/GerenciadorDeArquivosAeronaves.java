@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +16,12 @@ import br.edu.up.modelos.Aeronave;
 public class GerenciadorDeArquivosAeronaves {
 
     public String header;
-    public String nomeDoArquivo = "E:\\Projeto A2 - Geucimar\\Projeto-Engenharia-de-Software---sistema-de-trafego-aereo\\src\\br\\edu\\up\\docs\\aeronaves.csv";
+    public String nomeDoArquivo;
+
+    public GerenciadorDeArquivosAeronaves() {
+        Path caminhoArquivo = Paths.get("src", "br", "edu", "up", "docs", "aeronaves.csv");
+        nomeDoArquivo = caminhoArquivo.toAbsolutePath().toString();
+    }
 
     public List<Aeronave> getAeronaves() {
         List<Aeronave> listaDeAeronaves = new ArrayList<>();
