@@ -160,6 +160,9 @@ public class MenuGerente {
                 // 3. declarar aeronave para depois adicionar dados a ela
                 Aeronave aeronaveVoo = new Aeronave();
 
+                // 5. adicionar dados
+                controleAeronave.selecionar(codigoEscolhido)
+                
                 // aeronaveVoo.setIdCodigo(idCodigo);
                 // aeronaveVoo.setQtdAssentos(qtdAssentos);
                 // aeronaveVoo.setTipo(tipo);

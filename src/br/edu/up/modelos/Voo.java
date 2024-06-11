@@ -9,7 +9,6 @@ public class Voo {
     private String destino;
     private Comandante comandante;
     private Comissario comissario;
-    private Passageiro[] passageiros;
     private Data dataVoo;
     private int qtdAssentosDisponiveis;
 
@@ -19,14 +18,13 @@ public class Voo {
     }
     
     public Voo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante,
-            Comissario comissario, Passageiro[] passageiros, Data dataVoo, int qtdAssentosDisponiveis) {
+            Comissario comissario, Data dataVoo, int qtdAssentosDisponiveis) {
         this.aeronave = aeronave;
         this.idVoo = idVoo;
         this.origem = origem;
         this.destino = destino;
         this.comandante = comandante;
         this.comissario = comissario;
-        this.passageiros = passageiros;
         this.dataVoo = dataVoo;
         this.qtdAssentosDisponiveis = qtdAssentosDisponiveis;
     }

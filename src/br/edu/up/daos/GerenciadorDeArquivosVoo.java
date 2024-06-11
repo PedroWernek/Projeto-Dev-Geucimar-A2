@@ -36,12 +36,13 @@ public class GerenciadorDeArquivosVoo {
                 String destino = dadosVoo[3];
                 String comandante = dadosVoo[4];
                 String comissario = dadosVoo[5];
-                String passageiro = dadosVoo[6];
-                String dataVoo = dadosVoo[7];
-                String qtdAssentosDisponiveis = dadosVoo[8];
+                String dataVoo = dadosVoo[6];
+                String qtdAssentosDisponiveis = dadosVoo[7];
 
-                Voo Voos = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, passageiro, dataVoo, qtdAssentosDisponiveis);
+                Voo Voos = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, dataVoo, qtdAssentosDisponiveis);
                 
+                
+
                 listaVoos.add(Voos);
 
                 leitor.close();

@@ -14,7 +14,7 @@ import br.edu.up.modelos.Aeronave;
 public class GerenciadorDeArquivosAeronaves {
 
     public String header;
-    public String nomeDoArquivo = "E:\\Projeto A2 - Geucimar\\Projeto-Engenharia-de-Software---sistema-de-trafego-aereo\\src\\br\\edu\\up\\docs\\aeronaves.csv";
+    public String nomeDoArquivo = "D:\\Projeto-Dev-Geucimar-A2\\src\\br\\edu\\up\\docs\\aeronaves.csv";
 
     public List<Aeronave> getAeronaves() {
         List<Aeronave> listaDeAeronaves = new ArrayList<>();
