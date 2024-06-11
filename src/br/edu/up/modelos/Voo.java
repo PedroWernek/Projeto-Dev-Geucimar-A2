@@ -12,9 +12,8 @@ public class Voo {
     private String dataVoo;
     private int qtdAssentosDisponiveis;
     public Pessoa[] passageiros;
+
     public Voo() {
-    
-    
     }
     
     public Voo(Aeronave aeronave, String idVoo, String origem, String destino, Pessoa comandante,

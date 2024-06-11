@@ -32,21 +32,13 @@ public class ControleAeronave {
         return gravadorArquivos.gravar(aeronaves);
     }
 
-    public String selecionar(int codigoSelecionar){
-        int i = 0;
-        try{
-            for (Aeronave aeronave : aeronaves) {
-                if(aeronave.getIdCodigo() == codigoSelecionar){
-                 
-                    return aeronave.getIdCodigo() + "," + aeronave.getQtdAssentos() + "," + aeronave.getTipo();
-                }
-            i++;
+    public Aeronave selecionar(int codigoSelecionar) {
+        for (Aeronave aeronave : aeronaves) {
+            if (aeronave.getIdCodigo() == codigoSelecionar) {
+                return aeronave;
             }
-        }catch(Exception e){
-            ;
         }
-        return "Erro";
-        
+        return null; // Return null if no matching Aeronave is found
     }
 
 

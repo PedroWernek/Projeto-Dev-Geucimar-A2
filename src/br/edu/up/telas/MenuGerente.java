@@ -146,27 +146,63 @@ public class MenuGerente {
               
                 
                 case 4:
-                // 1. listar as aeronaves;
-                List<Aeronave> listaDeAeronavesVoo = controleAeronave.getAeronaves();
-                for (Aeronave aeronaves : listaDeAeronavesVoo) {
-                    System.out.println(aeronaves.getIdCodigo() + " / " + aeronaves.getQtdAssentos() + " / "
-                            + aeronaves.getTipo());
-                }
-                // 2. escolher uma pelo codigo dela;
-                int codigoEscolhido = Prompt.lerInteiro("Digite o codigo da aeronave que deseja escolher:");
-
-                // 3. trazer os dados idcodigo, qtdassentos e tipo da aeronave selecionada;
-                System.out.println(controleAeronave.selecionar(codigoEscolhido));
-
-                // 3. declarar aeronave para depois adicionar dados a ela
-                Aeronave aeronaveVoo = new Aeronave();
-
-                // 5. adicionar dados
-                controleAeronave.selecionar(codigoEscolhido);
                 
-                // aeronaveVoo.setIdCodigo(idCodigo);
-                // aeronaveVoo.setQtdAssentos(qtdAssentos);
-                // aeronaveVoo.setTipo(tipo);
+                    //Lista os voos disponíveis
+                    List<Aeronave> listaDeAeronavesVoo = controleAeronave.getAeronaves();
+                    for (Aeronave aeronaves : listaDeAeronavesVoo) {
+                        System.out.println(aeronaves.getIdCodigo() + " / " + aeronaves.getQtdAssentos() + " / " + aeronaves.getTipo());
+                    }
+
+                    //Lê e registra a aeronave desejada
+                    int codigoEscolhido = Prompt.lerInteiro("Digite o código da aeronave que deseja escolher:");
+                    Aeronave aeronaveVoo = controleAeronave.selecionar(codigoEscolhido);
+                    if (aeronaveVoo == null) {
+                        System.out.println("Aeronave não encontrada!");
+                        break;
+                    }
+
+                    //Pede as informações do voo
+                    String idVoo = Prompt.lerLinha("ID do Voo:");
+                    String origem = Prompt.lerLinha("Origem:");
+                    String destino = Prompt.lerLinha("Destino:");
+                    String dataVoo = Prompt.lerLinha("Data do Voo:");
+
+                    //Lista o(a)s comandantes e registra o(a)(s) escolhido(a)(s)
+                    ControleComandante controleComandante = new ControleComandante();
+                    List<Pessoa> listaDeComandantes = controleComandante.getComandantes();
+                    for (Pessoa comandante : listaDeComandantes) {
+                        System.out.println(comandante.getRg() + " / " + comandante.getNome());
+                    }
+                    String rgComandanteEscolhido = Prompt.lerLinha("Digite o RG do comandante que deseja escolher:");
+                    Comandante comandanteVoo = null;
+                    for (Pessoa comandante : listaDeComandantes) {
+                        if (comandante.getRg().equals(rgComandanteEscolhido)) {
+                            comandanteVoo = (Comandante) comandante;
+                            break;
+                        }
+                    }
+
+                    //Lista o(a)s comissário(a)(s) e registra o(a)(s) escolhido(a)(s)
+                    ControleComissario controleComissario = new ControleComissario();
+                    List<Pessoa> listaDeComissarios = controleComissario.getComissarios();
+                    for (Pessoa comissario : listaDeComissarios) {
+                        System.out.println(comissario.getRg() + " / " + comissario.getNome());
+                    }
+                    String rgComissarioEscolhido = Prompt.lerLinha("Digite o RG do comissário que deseja escolher:");
+                    Comissario comissarioVoo = null;
+                    for (Pessoa comissario : listaDeComissarios) {
+                        if (comissario.getRg().equals(rgComissarioEscolhido)) {
+                            comissarioVoo = (Comissario) comissario;
+                            break;
+                        }
+                    }
+
+                    Passageiro[] passageiros = new Passageiro[aeronaveVoo.getQtdAssentos()];
+
+                    controleVoo.adicionarVoo(aeronaveVoo, idVoo, origem, destino, comandanteVoo, comissarioVoo, passageiros, dataVoo, aeronaveVoo.getQtdAssentos());
+
+                    System.out.println("Voo adicionado com sucesso!");
+
                 break;
                     
 
