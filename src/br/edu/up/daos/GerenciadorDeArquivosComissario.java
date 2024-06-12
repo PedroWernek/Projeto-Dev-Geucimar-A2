@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.edu.up.modelos.Comissario;
+import br.edu.up.modelos.Pessoa;
 import br.edu.up.util.Prompt;
 
 
@@ -18,9 +19,9 @@ public class GerenciadorDeArquivosComissario {
   public String headerCom = "";
   public String nomeArquivo = "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/comissarios.csv";
 
-  public List<Comissario> getComissario() {
+  public List<Pessoa> getComissario() {
     
-    List<Comissario> listaComissario = new ArrayList<>();
+    List<Pessoa> listaComissario = new ArrayList<>();
 
     try {
       File arquivo = new File(nomeArquivo);
@@ -49,7 +50,7 @@ public class GerenciadorDeArquivosComissario {
     return listaComissario;
   }
     
-  public boolean gravar(List<Comissario> listaComissario) {
+  public boolean gravar(List<Pessoa> listaComissario) {
 
     try {
       FileWriter arquivoGravar = new FileWriter(nomeArquivo);
@@ -57,7 +58,7 @@ public class GerenciadorDeArquivosComissario {
 
       gravador.println(headerCom);
 
-      for (Comissario comissarios : listaComissario) {
+      for (Pessoa comissarios : listaComissario) {
         gravador.println(comissarios.toCSV());
       }
 
