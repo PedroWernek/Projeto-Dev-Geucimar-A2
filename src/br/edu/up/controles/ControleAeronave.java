@@ -9,7 +9,7 @@ import br.edu.up.modelos.*;
 public class ControleAeronave {
 
     private GerenciadorDeArquivosAeronaves gravadorArquivos = new GerenciadorDeArquivosAeronaves();
-    protected List<Aeronave> aeronaves;
+    private List<Aeronave> aeronaves;
 
     public ControleAeronave() {
         this.aeronaves = gravadorArquivos.getAeronaves();
