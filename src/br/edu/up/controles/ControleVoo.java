@@ -14,17 +14,20 @@ public class ControleVoo {
     public ControleVoo(){
         gravador = new GerenciadorDeArquivosVoo();
         voos = new ArrayList<>();
+        //voos = gravador.carregarVoosExistentes();
     }
-
+    
     public void adicionarVoo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante, Comissario comissario, Passageiro[] passageiros, String dataVoo, int qtdAssentosDisponiveis){
         Voo voo = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, dataVoo, qtdAssentosDisponiveis);
         voos.add(voo);
+        gravador();
     }
 
     public void deletarVoo(String idVoo){
         for (int i = 0; i < voos.size(); i++){
             if(voos.get(i).getIdVoo().equals(idVoo)){
                 voos.remove(i);
+                gravador();
                 return;
             }
         }
