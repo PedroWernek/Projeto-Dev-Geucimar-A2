@@ -22,9 +22,9 @@ public class ControleVoo {
         gravador();
     }
 
-    public void deletarVoo(String idVoo){
+    public void deletarVoo(String idVooRemover){
         for (int i = 0; i < voos.size(); i++){
-            if(voos.get(i).getIdVoo().equals(idVoo)){
+            if(voos.get(i).getIdVoo().equals(idVooRemover)){
                 voos.remove(i);
                 gravador();
                 return;

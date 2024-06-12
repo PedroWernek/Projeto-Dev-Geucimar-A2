@@ -210,6 +210,8 @@ public class MenuGerente {
                     break;
 
                 case 5:
+                    String idVooRemover = Prompt.lerLinha("Digite o ID do Voo que deseja remover:");
+                    controleVoo.deletarVoo(idVooRemover);
                     break;
                 case 6:
                     menuFuncionario.adicionarFuncionario();

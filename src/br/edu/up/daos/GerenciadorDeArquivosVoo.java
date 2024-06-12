@@ -88,14 +88,14 @@ public class GerenciadorDeArquivosVoo {
         return listaVoos;
     }
 
-    public boolean gravar(List<Voo> voos) {
+    public boolean gravar(List<Voo> voosG) {
         try {
             FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
             gravador.println(header);
 
-            for (Voo voo : voos) {
+            for (Voo voo : voosG) {
                 gravador.println(voo.toCSV());
             }
             gravador.close();
