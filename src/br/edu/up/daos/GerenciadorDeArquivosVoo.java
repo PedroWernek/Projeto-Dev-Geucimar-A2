@@ -23,24 +23,24 @@ import br.edu.up.modelos.Voo;
 public class GerenciadorDeArquivosVoo {
 
     public String headerVoo = "";
-    private String nomeDoArquivo;
+    private String nomeDoArquivoVoo;
 
     public GerenciadorDeArquivosVoo() {
-        Path caminhoArquivo = Paths.get("src", "br", "edu", "up", "docs", "voos.csv");
-        nomeDoArquivo = caminhoArquivo.toAbsolutePath().toString();
+        Path caminhoArquivoVoo = Paths.get("src", "br", "edu", "up", "docs", "voos.csv");
+        nomeDoArquivoVoo = caminhoArquivoVoo.toAbsolutePath().toString();
     }
 
     public List<Voo> getVoos(ControleAeronave cAeronaves, ControleComandante cComandante, ControleComissario cComissario) {
         List<Voo> listaVoos = new ArrayList<>();
 
         try {
-            File arquivoLeitura = new File(nomeDoArquivo);
-            Scanner leitor = new Scanner(arquivoLeitura);
+            File arquivoLeituraVoo = new File(nomeDoArquivoVoo);
+            Scanner leitorVoo = new Scanner(arquivoLeituraVoo);
 
-            headerVoo = leitor.nextLine();
+            headerVoo = leitorVoo.nextLine();
 
-            while (leitor.hasNextLine()) {
-                String linha = leitor.nextLine();
+            while (leitorVoo.hasNextLine()) {
+                String linha = leitorVoo.nextLine();
                 String[] dadosVoo = linha.split(";");
 
                 int idAeronave = Integer.parseInt(dadosVoo[0]);
@@ -82,7 +82,7 @@ public class GerenciadorDeArquivosVoo {
 
                 listaVoos.add(Voos);
 
-                leitor.close();
+                leitorVoo.close();
             }
         } catch (FileNotFoundException e) {
             Prompt.imprimir("Arquivo não encontrado!");
@@ -92,15 +92,15 @@ public class GerenciadorDeArquivosVoo {
 
     public boolean gravar(List<Voo> voos) {
         try {
-            FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
-            PrintWriter gravador = new PrintWriter(arquivoGravar);
+            FileWriter arquivoGravarVoo = new FileWriter(nomeDoArquivoVoo);
+            PrintWriter gravadorVoo = new PrintWriter(arquivoGravarVoo);
 
-            gravador.println(headerVoo);
+            gravadorVoo.println(headerVoo);
 
             for (Voo voo : voos) {
-                gravador.println(voo.toCSV());
+                gravadorVoo.println(voo.toCSV());
             }
-            gravador.close();
+            gravadorVoo.close();
             return true;
 
         } catch (IOException e) {

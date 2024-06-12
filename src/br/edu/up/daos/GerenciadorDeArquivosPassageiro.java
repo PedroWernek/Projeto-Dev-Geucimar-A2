@@ -14,12 +14,12 @@ import br.edu.up.util.Prompt;
 public class GerenciadorDeArquivosPassageiro {
     
     public String headerPassageiro = "";
-    private String nomeDoArquivo;
+    private String nomeDoArquivoPassageiro;
 
     /* encontra partes em comum do caminho já que os computadores tem caminhos diferentes */
     public GerenciadorDeArquivosPassageiro() {
-        Path caminhoRelativo = Paths.get("src", "br", "edu", "up", "docs", "passageiros.csv");
-        nomeDoArquivo = caminhoRelativo.toAbsolutePath().toString();
+        Path caminhoRelativoPassageiro = Paths.get("src", "br", "edu", "up", "docs", "passageiros.csv");
+        nomeDoArquivoPassageiro = caminhoRelativoPassageiro.toAbsolutePath().toString();
     }
 
     /* lê os arquivos */
@@ -27,14 +27,14 @@ public class GerenciadorDeArquivosPassageiro {
         List<Passageiro> listaDePassageiros = new ArrayList<>();
 
         try {
-            File arquivoDeLeitura = new File(nomeDoArquivo);
-            Scanner leitor = new Scanner(arquivoDeLeitura);
+            File arquivoDeLeituraPassageiro = new File(nomeDoArquivoPassageiro);
+            Scanner leitorPassageiro = new Scanner(arquivoDeLeituraPassageiro);
 
-            headerPassageiro = leitor.nextLine();
+            headerPassageiro = leitorPassageiro.nextLine();
 
-            while (leitor.hasNextLine()) {
-                String linha = leitor.nextLine();
-                String[] dadosPassageiros = linha.split(";");
+            while (leitorPassageiro.hasNextLine()) {
+                String linhaPassageiro = leitorPassageiro.nextLine();
+                String[] dadosPassageiros = linhaPassageiro.split(";");
 
                 String nome = dadosPassageiros[0];
                 String rg = dadosPassageiros[1];
@@ -46,7 +46,7 @@ public class GerenciadorDeArquivosPassageiro {
                 Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
                 listaDePassageiros.add(passageiro);
 
-                leitor.close();
+                leitorPassageiro.close();
                 /* verificar se é viável colocar voo */
 
             }
@@ -59,16 +59,16 @@ public class GerenciadorDeArquivosPassageiro {
 
         public boolean gravar(List<Passageiro> passageiros) {
             try {
-                FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
-                PrintWriter gravador = new PrintWriter(arquivoGravar);
+                FileWriter arquivoGravarPassageiro = new FileWriter(nomeDoArquivoPassageiro);
+                PrintWriter gravadorPassageiro = new PrintWriter(arquivoGravarPassageiro);
 
-                gravador.println(headerPassageiro);
+                gravadorPassageiro.println(headerPassageiro);
 
                 for (Passageiro passageiro : passageiros) {
-                    gravador.println(passageiro.toString());
+                    gravadorPassageiro.println(passageiro.toString());
                     /* toString ou toCSV? */
                 }
-                gravador.close();
+                gravadorPassageiro.close();
                 return true;
             } catch (IOException e) {
                 Prompt.imprimir("Não foi possível gravar o arquivo!");

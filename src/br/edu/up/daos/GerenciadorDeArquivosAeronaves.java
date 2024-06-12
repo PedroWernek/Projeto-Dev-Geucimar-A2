@@ -16,11 +16,11 @@ import br.edu.up.modelos.Aeronave;
 public class GerenciadorDeArquivosAeronaves {
 
     public String headerAeronave;
-    public String nomeDoArquivo;
+    public String nomeDoArquivoAeronaves;
 
     public GerenciadorDeArquivosAeronaves() {
-        Path caminhoArquivo = Paths.get("src", "br", "edu", "up", "docs", "aeronaves.csv");
-        nomeDoArquivo = caminhoArquivo.toAbsolutePath().toString();
+        Path caminhoArquivoComandante = Paths.get("src", "br", "edu", "up", "docs", "aeronaves.csv");
+        nomeDoArquivoAeronaves = caminhoArquivoComandante.toAbsolutePath().toString();
     }
 
     public List<Aeronave> getAeronaves() {
@@ -32,14 +32,14 @@ public class GerenciadorDeArquivosAeronaves {
              * mudar o caminho comenta ele pra não precisar
              * ficar reescrevendo - Pedro
              */
-            File arquivoLeitura = new File(nomeDoArquivo);
-            Scanner leitor = new Scanner(arquivoLeitura);
+            File arquivoLeituraAeronaves = new File(nomeDoArquivoAeronaves);
+            Scanner leitorAeronaves = new Scanner(arquivoLeituraAeronaves);
 
-            headerAeronave = leitor.nextLine();
+            headerAeronave = leitorAeronaves.nextLine();
 
-            while (leitor.hasNextLine()) {
-                String linha = leitor.nextLine();
-                String[] dadosAeronave = linha.split(";");
+            while (leitorAeronaves.hasNextLine()) {
+                String linhaAeronaves = leitorAeronaves.nextLine();
+                String[] dadosAeronave = linhaAeronaves.split(";");
 
                 int idCodigo = Integer.parseInt(dadosAeronave[0]);
                 int qtdAssentos = Integer.parseInt(dadosAeronave[1]);
@@ -55,7 +55,7 @@ public class GerenciadorDeArquivosAeronaves {
 
             }
 
-            leitor.close();
+            leitorAeronaves.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado");
@@ -66,7 +66,7 @@ public class GerenciadorDeArquivosAeronaves {
 
     public boolean gravar(List<Aeronave> aeronaves) {
         try {
-            FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
+            FileWriter arquivoGravar = new FileWriter(nomeDoArquivoAeronaves);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
             gravador.println(headerAeronave);

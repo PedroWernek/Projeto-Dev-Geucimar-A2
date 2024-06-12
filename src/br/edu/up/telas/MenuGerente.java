@@ -64,6 +64,7 @@ public class MenuGerente {
 
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
+            Prompt.separador();
             Prompt.imprimir("1: Adicionar Aeronave");
             Prompt.imprimir("2: Listar Aeronaves");
             Prompt.imprimir("3: Deletar Aeronave");
