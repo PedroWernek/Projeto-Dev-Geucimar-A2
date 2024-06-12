@@ -156,7 +156,7 @@ public class MenuGerente {
                     }
 
                     //Lê e registra a aeronave desejada
-                    int codigoEscolhido = Prompt.lerInteiro("Digite o código da aeronave que deseja escolher:");
+                    int codigoEscolhido = Prompt.lerInteiro("\nDigite o código da aeronave que deseja escolher:");
                     Aeronave aeronaveVoo = controleAeronave.selecionar(codigoEscolhido);
                     if (aeronaveVoo == null) {
                         System.out.println("Aeronave não encontrada!");
@@ -212,7 +212,8 @@ public class MenuGerente {
                     break;
 
                 case 5:
-                    
+                    System.out.println(controleVoo.listarVoos());    
+
                     String idVooRemover = Prompt.lerLinha("Digite o ID do Voo que deseja remover:");
                     if(controleVoo.deletarVoo(idVooRemover)){
                         if(controleVoo.gravador()){
