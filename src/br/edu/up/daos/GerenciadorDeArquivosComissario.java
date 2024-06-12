@@ -18,7 +18,7 @@ import br.edu.up.util.Prompt;
 
 public class GerenciadorDeArquivosComissario {
     
-  public String headerCom = "";
+  public String headerComissario = "";
   public String nomeDoArquivo;
   
   public GerenciadorDeArquivosComissario() {
@@ -34,7 +34,7 @@ public class GerenciadorDeArquivosComissario {
       File arquivo = new File(nomeDoArquivo);
       Scanner leitor = new Scanner(arquivo);
 
-      headerCom = leitor.nextLine();
+      headerComissario = leitor.nextLine();
 
       while (leitor.hasNextLine()) {
         String linhaAtual = leitor.nextLine();
@@ -63,7 +63,7 @@ public class GerenciadorDeArquivosComissario {
       FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
       PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-      gravador.println(headerCom);
+      gravador.println(headerComissario);
 
       for (Pessoa comissarios : listaComissario) {
         gravador.println(comissarios.toCSV());

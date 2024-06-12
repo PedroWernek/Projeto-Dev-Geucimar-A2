@@ -72,7 +72,8 @@ public class MenuGerente {
             Prompt.imprimir("6: Adicionar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
             Prompt.imprimir("7: Listar Funcionários");/* Pedro - fazendo o listar Funcionarios no menuFuncionarios */
             Prompt.imprimir("8: Deletar Funcionário");/* Pedro - fazendo o registrar de Funcionario */
-            Prompt.imprimir("0: Sair");
+            Prompt.imprimir("0: Voltar");
+            Prompt.separador();
             
             /*
              * algm colocou mais funcoes e n mudou as coisas aqui embaixo:

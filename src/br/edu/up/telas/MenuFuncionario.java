@@ -31,7 +31,7 @@ public class MenuFuncionario {
         cadastrarComissario();
         break;
       case 3:
-      
+        break;
       default:
         Prompt.imprimir("Escolha invalida");
         adicionarFuncionario();

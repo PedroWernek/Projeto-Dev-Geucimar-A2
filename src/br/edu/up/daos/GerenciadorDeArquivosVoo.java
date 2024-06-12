@@ -22,7 +22,7 @@ import br.edu.up.modelos.Voo;
 
 public class GerenciadorDeArquivosVoo {
 
-    public String header = "";
+    public String headerVoo = "";
     private String nomeDoArquivo;
 
     public GerenciadorDeArquivosVoo() {
@@ -37,7 +37,7 @@ public class GerenciadorDeArquivosVoo {
             File arquivoLeitura = new File(nomeDoArquivo);
             Scanner leitor = new Scanner(arquivoLeitura);
 
-            header = leitor.nextLine();
+            headerVoo = leitor.nextLine();
 
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine();
@@ -95,7 +95,7 @@ public class GerenciadorDeArquivosVoo {
             FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-            gravador.println(header);
+            gravador.println(headerVoo);
 
             for (Voo voo : voos) {
                 gravador.println(voo.toCSV());

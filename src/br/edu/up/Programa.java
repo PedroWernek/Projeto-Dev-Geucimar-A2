@@ -5,6 +5,7 @@ public class Programa {
     public static void main(String[] args)  {
         EscolherMenu.escolha();
     }
+    
     public static void sair(){
         System.exit(0);
     }

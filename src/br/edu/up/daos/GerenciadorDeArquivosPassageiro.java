@@ -13,7 +13,7 @@ import br.edu.up.util.Prompt;
 
 public class GerenciadorDeArquivosPassageiro {
     
-    public String header = "";
+    public String headerPassageiro = "";
     private String nomeDoArquivo;
 
     /* encontra partes em comum do caminho já que os computadores tem caminhos diferentes */
@@ -30,7 +30,7 @@ public class GerenciadorDeArquivosPassageiro {
             File arquivoDeLeitura = new File(nomeDoArquivo);
             Scanner leitor = new Scanner(arquivoDeLeitura);
 
-            header = leitor.nextLine();
+            headerPassageiro = leitor.nextLine();
 
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine();
@@ -62,7 +62,7 @@ public class GerenciadorDeArquivosPassageiro {
                 FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
                 PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-                gravador.println(header);
+                gravador.println(headerPassageiro);
 
                 for (Passageiro passageiro : passageiros) {
                     gravador.println(passageiro.toString());

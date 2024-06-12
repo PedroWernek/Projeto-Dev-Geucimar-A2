@@ -15,7 +15,7 @@ import br.edu.up.modelos.Aeronave;
 
 public class GerenciadorDeArquivosAeronaves {
 
-    public String header;
+    public String headerAeronave;
     public String nomeDoArquivo;
 
     public GerenciadorDeArquivosAeronaves() {
@@ -35,7 +35,7 @@ public class GerenciadorDeArquivosAeronaves {
             File arquivoLeitura = new File(nomeDoArquivo);
             Scanner leitor = new Scanner(arquivoLeitura);
 
-            header = leitor.nextLine();
+            headerAeronave = leitor.nextLine();
 
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine();
@@ -69,7 +69,7 @@ public class GerenciadorDeArquivosAeronaves {
             FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-            gravador.println(header);
+            gravador.println(headerAeronave);
 
             for (Aeronave aeronave : aeronaves) {
                 gravador.println(aeronave.toString());
