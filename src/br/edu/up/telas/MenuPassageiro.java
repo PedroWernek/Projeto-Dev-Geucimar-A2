@@ -11,6 +11,43 @@ public class MenuPassageiro {
      * diferenciador, possivelmente rg)
      */
     static ControlePassageiro controlePassageiro = new ControlePassageiro();
+    static ControleAeronave controleAeronave = new ControleAeronave();
+    static MenuFuncionario menuFuncionario = new MenuFuncionario();
+    static ControleVoo controleVoo = new ControleVoo(controleAeronave.getAeronaves(), menuFuncionario.getControleComandante().getComandantes(), menuFuncionario.getControleComissario().getComissarios());
+
+    public static String listarVoos() {
+        if (controleVoo.getListaVoo() == null) {
+            return "Não há voos registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0;
+
+            for (Voo vooExemplo : controleVoo.getListaVoo()) {
+                sb.append("Voo ").append(index).append(":\n");
+                sb.append(vooExemplo.toString()).append("\n");
+                index++;
+            }
+
+            return sb.toString();
+        }
+    }
+
+    public static String listarAssentosDisponiveis(int a) {
+        if (controleVoo.getListaVoo().get(a).getPassageiros() == null) {
+            return "O voo está vazio.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0;
+
+            for (index = 0; index < controleVoo.getListaVoo().get(a).getAeronave().getQtdAssentos(); index++) {
+                if (controleVoo.getListaVoo().get(a).getPassageiros()[index] == null) {
+                    sb.append("Assento ").append(index).append(" Disponível!\n");
+                }
+            }
+
+            return sb.toString();
+        }
+    }
 
     public static void executar() {
         int opcao;
@@ -29,17 +66,17 @@ public class MenuPassageiro {
 
             switch (opcao) {
                 case 1:
-                    MenuGerente.listarVoos();
+                    listarVoos();
                     int a = Prompt.lerInteiro("Digite o índice do voo desejado: ");
 
                     nome = Prompt.lerLinha("Informe seu nome: ");
                     rg = Prompt.lerLinha("Informe seu RG: ");
 
-                    MenuGerente.voo.get(a).getAeronave().incrementarIdPassagem();
-                    int idPassagem = MenuGerente.voo.get(a).getAeronave().getIdPassagem();
+                    controleVoo.getListaVoo().get(a).getAeronave().incrementarIdPassagem();
+                    int idPassagem = controleVoo.getListaVoo().get(a).getAeronave().getIdPassagem();
 
-                    MenuGerente.voo.get(a).getAeronave().incrementarIdBagagem();
-                    int idBagagem = MenuGerente.voo.get(a).getAeronave().getIdBagagem();
+                    controleVoo.getListaVoo().get(a).getAeronave().incrementarIdBagagem();
+                    int idBagagem = controleVoo.getListaVoo().get(a).getAeronave().getIdBagagem();
 
                     MenuGerente.listarAssentosDisponiveis(a);
                     String numAssento = Prompt.lerLinha("Digite o número do assento: ");
@@ -47,14 +84,11 @@ public class MenuPassageiro {
                     Passagem passagem = new Passagem();
                     passagem.setIdPassagem(idPassagem);
                     passagem.setNumAssento(numAssento);
-                    passagem.setVoo(MenuGerente.voo.get(a));
+                    passagem.setVoo(controleVoo.getListaVoo().get(a));
 
                     Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
-                    MenuGerente.voo.get(a).reduzirQtdAssentosDisponiveis();
-                    /*
-                     * refletir se é necessário ter a qtd de assentos disponíveis, se isso
-                     * já é definido em espaços vazios no vetor passageiros dentro do voo
-                     */
+                    controleVoo.getListaVoo().get(a).reduzirQtdAssentosDisponiveis();
+
                     break;
                 case 2:
                     MenuGerente.listarVoos();
