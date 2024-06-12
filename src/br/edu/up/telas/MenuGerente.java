@@ -18,23 +18,6 @@ public class MenuGerente {
     static ControleVoo controleVoo = new ControleVoo(controleAeronave.getAeronaves(), menuFuncionario.getControleComandante().getComandantes(), menuFuncionario.getControleComissario().getComissarios());
 
     // => Pedro - Criando MenuFuncionario
-    
-    public static String listarVoos() {
-        if (voo == null) {
-            return "Não há voos registrados.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0;
-
-            for (Voo vooExemplo : voo) {
-                sb.append("Voo ").append(index).append(":\n");
-                sb.append(vooExemplo.toString()).append("\n");
-                index++;
-            }
-
-            return sb.toString();
-        }
-    }
 
     public static String listarAssentosDisponiveis(int a) {
         if (voo.get(a).getPassageiros() == null) {

@@ -55,6 +55,10 @@ public class MenuPassageiro {
                     Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
                     controleVoo.getListaVoo().get(a).reduzirQtdAssentosDisponiveis();
 
+                    if (controlePassageiro.gravador()) {
+                        Prompt.imprimir("Passagem gravada com sucesso! :)");
+                    }
+
                     break;
                 case 2:
                     controleVoo.listarVoos();
@@ -63,7 +67,7 @@ public class MenuPassageiro {
                     rg = Prompt.lerLinha("Informe seu RG: ");
                     /* TODO: implementar a retirada do passageiro do voo, no controle voo */
 
-                    
+
 
                     break;
                 case 3:
