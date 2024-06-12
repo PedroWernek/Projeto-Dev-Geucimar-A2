@@ -18,10 +18,7 @@ public class MenuGerente {
     static ControleVoo controleVoo = new ControleVoo(controleAeronave.getAeronaves(), menuFuncionario.getControleComandante().getComandantes(), menuFuncionario.getControleComissario().getComissarios());
 
     // => Pedro - Criando MenuFuncionario
-
-
-    static ArrayList<Voo> voo = new ArrayList<Voo>();
-
+    
     public static String listarVoos() {
         if (voo == null) {
             return "Não há voos registrados.";
