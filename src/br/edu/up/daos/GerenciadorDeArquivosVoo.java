@@ -36,7 +36,7 @@ public class GerenciadorDeArquivosVoo {
         try {
             File arquivoLeitura = new File(nomeDoArquivo);
             Scanner leitor = new Scanner(arquivoLeitura);
-
+            leitor.nextLine();
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine();
                 String[] dadosVoo = linha.split(";");
