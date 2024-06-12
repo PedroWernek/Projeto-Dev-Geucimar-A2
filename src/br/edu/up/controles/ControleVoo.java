@@ -33,6 +33,25 @@ public class ControleVoo {
         return false;
     }
 
+    public String listarVoos() {
+        StringBuilder listaVoos = new StringBuilder();
+        int i = 1;
+        for (Voo voo : voos) {
+            listaVoos.append(i).append(" - ");
+            listaVoos.append("Aeronave: ").append(voo.getAeronave().getIdCodigo()).append(";").append(voo.getAeronave().getQtdAssentos()).append(" ;").append(voo.getAeronave().getTipo()).append(", ");
+            listaVoos.append("ID do Voo: ").append(voo.getIdVoo()).append(", ");
+            listaVoos.append("Origem: ").append(voo.getOrigem()).append(", ");
+            listaVoos.append("Destino: ").append(voo.getDestino()).append(", ");
+            listaVoos.append("Comandante: ").append(voo.getComandante().getNome()).append(", ");
+            listaVoos.append("Comissário: ").append(voo.getComissario().getNome()).append(", ");
+            listaVoos.append("Data do Voo: ").append(voo.getDataVoo()).append(", ");
+            listaVoos.append("Assentos Disponíveis: ").append(voo.getQtdAssentosDisponiveis()).append("\n");
+            i++;
+        }
+        return listaVoos.toString();
+    }
+    
+
     public boolean gravador(){
         return gravador.gravar(voos);
     }
