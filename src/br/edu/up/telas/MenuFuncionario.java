@@ -45,6 +45,7 @@ public class MenuFuncionario {
     Prompt.imprimir("--------MENU REMOVER FUNCIONARIO--------");
     Prompt.imprimir("1- Comandante");
     Prompt.imprimir("2- Comissario");
+    Prompt.imprimir("3- Sair");
     Prompt.imprimir("------------------------------------------");
 
     int escolha = Prompt.lerInteiro();
@@ -56,6 +57,8 @@ public class MenuFuncionario {
       case 2:
         removerComissario();
         break;
+      case 3:
+        break;
       default:
         Prompt.imprimir("Escolha invalida");
         removerFuncionario();
@@ -63,9 +66,11 @@ public class MenuFuncionario {
     }
 
   }
+
   // TODO fazer ListarFuncionarios
-  //Mudei o nome pra "MENU LISTAR FUNCIONARIO" pq ainda tava como remover, por algum motivo
-  //Bom vc mudar ali pedro o removerComandante(); 
+  // Mudei o nome pra "MENU LISTAR FUNCIONARIO" pq ainda tava como remover, por
+  // algum motivo
+  // Bom vc mudar ali pedro o removerComandante();
   public void listarFuncionarios() {
     Prompt.imprimir("--------MENU LISTAR FUNCIONARIO--------");
     Prompt.imprimir("1- Comandante");
@@ -109,28 +114,34 @@ public class MenuFuncionario {
     Prompt.pressionarEnter();
   }
 
-  public void listarComandantes(){
+  public void listarComandantes() {
     Prompt.imprimir(controleComandante.listar());
   }
 
-  public void removerComandante(){
+  public void removerComandante() {
     listarComandantes();
     String rg = Prompt.lerLinha("Digite o RG do comandante que deseja remover:");
 
-    if(controleComandante.remover(rg)){
+    if (controleComandante.remover(rg)) {
       Prompt.imprimir("Comandante removido com sucesso!");
       controleComandante.gravar();
-    }else{
+    } else {
       Prompt.imprimir("Erro ao remover comandante!");
     }
   }
 
-  
+  public ControleComandante getControleComandante() {
+    return controleComandante;
+  }
+
+  public ControleComissario getControleComissario() {
+    return controleComissario;
+  }
 
   //////////////////////////////////////////////////////////////////////////////////////////
-  //PARTE COMISSARIO:
+  // PARTE COMISSARIO:
 
-  public void cadastrarComissario(){
+  public void cadastrarComissario() {
     String nome = Prompt.lerLinha("Digite o nome do comissário: ");
     String rg = Prompt.lerLinha("Digite o RG: ");
     int idAeronautica = Prompt.lerInteiro("Digite o ID Da Aeronautica: ");
@@ -147,19 +158,17 @@ public class MenuFuncionario {
 
     Prompt.linhaEmBranco();
     Prompt.pressionarEnter();
-    
+
   }
 
-  public void removerComissario(){
+  public void removerComissario() {
     String rg = Prompt.lerLinha("Digite o RG do comissário a ser deletado: ");
     controleComissario.remover(rg);
   }
 
-  public void listarComissario(){
+  public void listarComissario() {
     Prompt.imprimir("Esses são os comissários cadastrados: ");
     Prompt.imprimir(controleComissario.listar());
   }
-
-
 
 }

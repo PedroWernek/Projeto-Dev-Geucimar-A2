@@ -5,16 +5,16 @@ import java.util.List;
 
 import br.edu.up.daos.GerenciadorDeArquivosVoo;
 import br.edu.up.modelos.*;
+import br.edu.up.telas.MenuFuncionario;
 
 public class ControleVoo {
     /* add e deletar voo: TODO */
-    private GerenciadorDeArquivosVoo gravador;
-    private List<Voo> voos;
+    private GerenciadorDeArquivosVoo gravadorVoos;
+    private List<Voo> voos = new ArrayList<>();
 
-    public ControleVoo(){
-        gravador = new GerenciadorDeArquivosVoo();
-        voos = new ArrayList<>();
-        //voos = gravador.carregarVoosExistentes();
+    public ControleVoo(ControleAeronave controleAeronave, MenuFuncionario menuFuncionario){
+        gravadorVoos = new GerenciadorDeArquivosVoo();
+        voos = gravadorVoos.getVoos(controleAeronave, menuFuncionario.getControleComandante(), menuFuncionario.getControleComissario());
     }
     
     public void adicionarVoo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante, Comissario comissario, Passageiro[] passageiros, String dataVoo, int qtdAssentosDisponiveis){
@@ -33,12 +33,8 @@ public class ControleVoo {
         }
     }
 
-    public void getVoos(ControleAeronave cA, ControleComandante cComandante, ControleComissario cComissario){
-        gravador.getVoos(cA, cComandante, cComissario);
-    }
-
     public void gravador(){
-        gravador.gravar(voos);
+        gravadorVoos.gravar(voos);
     }
 
 }

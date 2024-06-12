@@ -14,11 +14,10 @@ public class MenuGerente {
      * excluir, selecionar)
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
-    static ControleVoo controleVoo = new ControleVoo();
+    static MenuFuncionario menuFuncionario = new MenuFuncionario();
+    static ControleVoo controleVoo = new ControleVoo(controleAeronave, menuFuncionario);
 
     // => Pedro - Criando MenuFuncionario
-    static MenuFuncionario menuFuncionario = new MenuFuncionario();
-
     static ArrayList<Voo> voo = new ArrayList<Voo>();
 
     public static String listarVoos() {

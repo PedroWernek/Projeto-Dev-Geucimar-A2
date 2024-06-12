@@ -10,7 +10,7 @@ public class MenuPassageiro {
      * precisa manipular passagens: comprar, deletar, consultar (baseado em
      * diferenciador, possivelmente rg)
      */
-    ControlePassageiro controlePassageiro = new ControlePassageiro();
+    static ControlePassageiro controlePassageiro = new ControlePassageiro();
 
     public static void executar() {
         int opcao;
