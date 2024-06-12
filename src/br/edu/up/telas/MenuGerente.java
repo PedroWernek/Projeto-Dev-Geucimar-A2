@@ -203,15 +203,24 @@ public class MenuGerente {
 
                     if (comandanteVoo != null && comissarioVoo != null) {
                         controleVoo.adicionarVoo(aeronaveVoo, idVoo, origem, destino, comandanteVoo, comissarioVoo, passageiros, dataVoo, aeronaveVoo.getQtdAssentos());
-                        System.out.println("Voo adicionado com sucesso!");
+                        if(controleVoo.gravador()){
+                            System.out.println("Voo gravado com sucesso");
+                        };
                     } else {
                         System.out.println("Erro: Comandante ou comissário não selecionado.");
                     }
                     break;
 
                 case 5:
+                    
                     String idVooRemover = Prompt.lerLinha("Digite o ID do Voo que deseja remover:");
-                    controleVoo.deletarVoo(idVooRemover);
+                    if(controleVoo.deletarVoo(idVooRemover)){
+                        if(controleVoo.gravador()){
+                            System.out.println("Voo deletado com sucesso");
+                        };
+                    }else{
+                        System.out.println("Erro ao deletar voo");
+                    }
                     break;
                 case 6:
                     menuFuncionario.adicionarFuncionario();

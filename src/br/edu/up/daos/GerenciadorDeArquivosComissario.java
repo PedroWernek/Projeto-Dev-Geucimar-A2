@@ -42,8 +42,8 @@ public class GerenciadorDeArquivosComissario {
 
         String nome = dados[0];
         String rg = dados[1];
-        int idAeronautica = Integer.parseInt(dados[2]);
-        int idMatricula = Integer.parseInt(dados[3]);
+        double idAeronautica = Double.parseDouble(dados[2]);
+        double idMatricula = Double.parseDouble(dados[3]);
 
         Comissario comissario = new Comissario(nome, rg, idAeronautica, idMatricula, rg);
         listaComissario.add(comissario);

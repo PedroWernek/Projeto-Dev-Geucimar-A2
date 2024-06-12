@@ -9,31 +9,32 @@ import br.edu.up.modelos.*;
 public class ControleVoo {
     /* add e deletar voo: TODO */
     private GerenciadorDeArquivosVoo gravador;
-    private List<Voo> voos = new ArrayList<>();
+    private List<Voo> voos = new ArrayList<>();;
 
     public ControleVoo(List<Aeronave> aeronaves, List<Pessoa> comandantes, List<Pessoa> comissarios){
         gravador = new GerenciadorDeArquivosVoo();
-        gravador.getVoos(aeronaves, comandantes, comissarios);
+        voos = gravador.getVoos(aeronaves, comandantes, comissarios);
     }
     
     public void adicionarVoo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante, Comissario comissario, Passageiro[] passageiros, String dataVoo, int qtdAssentosDisponiveis){
         Voo voo = new Voo(aeronave, idVoo, origem, destino, comandante, comissario, dataVoo, qtdAssentosDisponiveis);
         voos.add(voo);
-        gravador();
     }
 
-    public void deletarVoo(String idVooRemover){
-        for (int i = 0; i < voos.size(); i++){
-            if(voos.get(i).getIdVoo().equals(idVooRemover)){
+    public boolean deletarVoo(String idVooRemover){
+        int i = 0;
+        for (Voo voo : voos) {
+            if(voo.getIdVoo().equals(idVooRemover)){
                 voos.remove(i);
-                gravador();
-                return;
+                return true;
             }
+            i++;
         }
+        return false;
     }
 
-    public void gravador(){
-        gravador.gravar(voos);
+    public boolean gravador(){
+        return gravador.gravar(voos);
     }
 
 }
