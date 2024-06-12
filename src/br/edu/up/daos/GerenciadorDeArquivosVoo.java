@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import br.edu.up.util.Prompt;
-import br.edu.up.controles.ControleAeronave;
-import br.edu.up.controles.ControleComandante;
-import br.edu.up.controles.ControleComissario;
 import br.edu.up.modelos.Aeronave;
 import br.edu.up.modelos.Comandante;
 import br.edu.up.modelos.Comissario;
@@ -22,7 +19,7 @@ import br.edu.up.modelos.Voo;
 
 public class GerenciadorDeArquivosVoo {
 
-    public String header = "idAeronave;idVoo;origem;destino;rgComandante;rgComissario;dataVoo;qtdAssentosDisponiveis";
+    public String header= "";
     private String nomeDoArquivo;
 
     public GerenciadorDeArquivosVoo() {
@@ -30,18 +27,19 @@ public class GerenciadorDeArquivosVoo {
         nomeDoArquivo = caminhoArquivo.toAbsolutePath().toString();
     }
 
-    public List<Voo> getVoos(ControleAeronave cAeronaves, ControleComandante cComandante, ControleComissario cComissario) {
+    public List<Voo> getVoos(List<Aeronave> aeronaves, List<Pessoa> comandantes, List<Pessoa> comissarios) {
         List<Voo> listaVoos = new ArrayList<>();
 
         try {
             File arquivoLeitura = new File(nomeDoArquivo);
-            Scanner leitor = new Scanner(arquivoLeitura);
-            leitor.nextLine();
-            while (leitor.hasNextLine()) {
-                String linha = leitor.nextLine();
+            Scanner leitorVoo = new Scanner(arquivoLeitura);
+            header = leitorVoo.nextLine();
+
+            while (leitorVoo.hasNextLine()) {
+                String linha = leitorVoo.nextLine();
                 String[] dadosVoo = linha.split(";");
 
-                int idAeronave = Integer.parseInt(dadosVoo[0]);
+                double idAeronave = Double.parseDouble(dadosVoo[0]);
                 String idVoo = dadosVoo[1];
                 String origem = dadosVoo[2];
                 String destino = dadosVoo[3];
@@ -55,21 +53,21 @@ public class GerenciadorDeArquivosVoo {
                 Pessoa comissario = new Comissario();
 
                 //achando aeronave dentro da lista aeronaves
-                for (Aeronave aeronaveT : cAeronaves.getAeronaves()) {
+                for (Aeronave aeronaveT : aeronaves) {
                     if(idAeronave == aeronaveT.getIdCodigo()){
                         aeronave = aeronaveT;
                         break;
                     }
                 }
                 //achando comandante dentro da lista comandantes
-                for (Pessoa comandanteT : cComandante.getComandantes()){
+                for (Pessoa comandanteT : comandantes){
                     if(rgComandante == comandanteT.getRg()){
                         comandante = comandanteT;
                         break;
                     }
                 }
                 //achando comissario dentro da lista comissarios
-                for(Pessoa comissarioT : cComissario.getComissarios()){
+                for(Pessoa comissarioT : comissarios){
                     if(rgComissario == comissarioT.getRg()){
                         comissario = comissarioT;
                         break;
@@ -80,8 +78,10 @@ public class GerenciadorDeArquivosVoo {
 
                 listaVoos.add(Voos);
 
-                leitor.close();
+                
             }
+
+            leitorVoo.close();
         } catch (FileNotFoundException e) {
             Prompt.imprimir("Arquivo não encontrado!");
         }

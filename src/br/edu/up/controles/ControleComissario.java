@@ -13,7 +13,7 @@ public class ControleComissario {
 
     private GerenciadorDeArquivosComissario gravador;
 
-    private List<Pessoa> comissarios;
+    protected List<Pessoa> comissarios;
 
     public ControleComissario() {
         this.comissarios = new ArrayList<>(); 

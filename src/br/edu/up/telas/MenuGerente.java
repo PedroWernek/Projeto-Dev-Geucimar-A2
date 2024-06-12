@@ -15,7 +15,7 @@ public class MenuGerente {
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
-    static ControleVoo controleVoo = new ControleVoo();
+    static ControleVoo controleVoo = new ControleVoo(controleAeronave.getAeronaves(), menuFuncionario.getControleComandante().getComandantes(), menuFuncionario.getControleComissario().getComissarios());
 
     // => Pedro - Criando MenuFuncionario
 
