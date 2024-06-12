@@ -2,10 +2,11 @@ package br.edu.up.controles;
 
 import java.util.ArrayList;
 
+import br.edu.up.daos.GerenciadorDeArquivosPassageiro;
 import br.edu.up.modelos.*;
 
 public class ControlePassageiro {
-    /* todo add passagem deletar e consultar (ultimo melhor deixar p menu pq e string) */
+    private GerenciadorDeArquivosPassageiro gravador;
     ArrayList<Passageiro> passageiros = new ArrayList<>();
 
     public void adicionarPassageiro(String nome, String rg, Passagem passagem, int idBagagem) {
@@ -20,6 +21,10 @@ public class ControlePassageiro {
                 return;
             }
         }
+    }
+
+    public boolean gravador(){
+        return gravador.gravar(passageiros);
     }
 
 }

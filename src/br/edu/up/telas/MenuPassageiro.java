@@ -57,11 +57,13 @@ public class MenuPassageiro {
 
                     break;
                 case 2:
-                    MenuGerente.listarVoos();
+                    controleVoo.listarVoos();
                     a = Prompt.lerInteiro("Digite o índice do seu voo: ");
 
                     rg = Prompt.lerLinha("Informe seu RG: ");
                     /* TODO: implementar a retirada do passageiro do voo, no controle voo */
+
+                    
 
                     break;
                 case 3:
