@@ -6,8 +6,8 @@ import br.edu.up.util.Prompt;
 
 public class MenuFuncionario {
   /* Pedro - criando controle Comandante */
-  public ControleComandante controleComandante;
-  public ControleComissario controleComissario;
+  private ControleComandante controleComandante;
+  private ControleComissario controleComissario;
 
   public MenuFuncionario() {
     this.controleComandante = new ControleComandante();

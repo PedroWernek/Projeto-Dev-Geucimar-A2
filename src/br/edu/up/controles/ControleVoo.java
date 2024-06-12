@@ -9,12 +9,11 @@ import br.edu.up.modelos.*;
 public class ControleVoo {
     /* add e deletar voo: TODO */
     private GerenciadorDeArquivosVoo gravador;
-    private List<Voo> voos;
+    private List<Voo> voos = new ArrayList<>();
 
-    public ControleVoo(){
+    public ControleVoo(List<Aeronave> aeronaves, List<Pessoa> comandantes, List<Pessoa> comissarios){
         gravador = new GerenciadorDeArquivosVoo();
-        voos = new ArrayList<>();
-        //voos = gravador.carregarVoosExistentes();
+        gravador.getVoos(aeronaves, comandantes, comissarios);
     }
     
     public void adicionarVoo(Aeronave aeronave, String idVoo, String origem, String destino, Comandante comandante, Comissario comissario, Passageiro[] passageiros, String dataVoo, int qtdAssentosDisponiveis){
@@ -31,10 +30,6 @@ public class ControleVoo {
                 return;
             }
         }
-    }
-
-    public void getVoos(ControleAeronave cA, ControleComandante cComandante, ControleComissario cComissario){
-        gravador.getVoos(cA, cComandante, cComissario);
     }
 
     public void gravador(){

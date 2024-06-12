@@ -11,7 +11,7 @@ public class ControleComandante {
     // gravador de Arquivos
     private GerenciadorDeArquivosComandante gravador;
     // lista de comandantes
-    private List<Pessoa> comandantes = new ArrayList<>();
+    protected List<Pessoa> comandantes = new ArrayList<>();
 
     public ControleComandante() {
         this.gravador = new GerenciadorDeArquivosComandante();
