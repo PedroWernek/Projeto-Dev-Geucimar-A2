@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,14 +19,19 @@ import br.edu.up.util.Prompt;
 public class GerenciadorDeArquivosComissario {
     
   public String headerCom = "";
-  public String nomeArquivo = "C:/Users/user/Desktop/Projeto A2 - Geucimar/src/br/edu/up/docs/comissarios.csv";
+  public String nomeDoArquivo;
+  
+  public GerenciadorDeArquivosComissario() {
+        Path caminhoRelativo = Paths.get("src", "br", "edu", "up", "docs", "comissarios.csv");
+        nomeDoArquivo = caminhoRelativo.toAbsolutePath().toString();
+    }
 
   public List<Pessoa> getComissario() {
     
     List<Pessoa> listaComissario = new ArrayList<>();
 
     try {
-      File arquivo = new File(nomeArquivo);
+      File arquivo = new File(nomeDoArquivo);
       Scanner leitor = new Scanner(arquivo);
 
       headerCom = leitor.nextLine();
@@ -53,7 +60,7 @@ public class GerenciadorDeArquivosComissario {
   public boolean gravar(List<Pessoa> listaComissario) {
 
     try {
-      FileWriter arquivoGravar = new FileWriter(nomeArquivo);
+      FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
       PrintWriter gravador = new PrintWriter(arquivoGravar);
 
       gravador.println(headerCom);

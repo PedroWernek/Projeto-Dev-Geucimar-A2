@@ -146,7 +146,7 @@ public class MenuGerente {
               
                 
                 case 4:
-                
+
                     //Lista os voos disponíveis
                     List<Aeronave> listaDeAeronavesVoo = controleAeronave.getAeronaves();
                     for (Aeronave aeronaves : listaDeAeronavesVoo) {
@@ -156,13 +156,10 @@ public class MenuGerente {
                     //Lê e registra a aeronave desejada
                     int codigoEscolhido = Prompt.lerInteiro("Digite o código da aeronave que deseja escolher:");
                     Aeronave aeronaveVoo = controleAeronave.selecionar(codigoEscolhido);
-
                     if (aeronaveVoo == null) {
                         System.out.println("Aeronave não encontrada!");
                         break;
                     }
-
-                    
 
                     //Lista o(a)s comandantes e registra o(a)(s) escolhido(a)(s)
                     ControleComandante controleComandante = new ControleComandante();
@@ -170,7 +167,6 @@ public class MenuGerente {
                     for (Pessoa comandante : listaDeComandantes) {
                         System.out.println(comandante.getRg() + " / " + comandante.getNome());
                     }
-                    
                     String rgComandanteEscolhido = Prompt.lerLinha("Digite o RG do comandante que deseja escolher:");
                     Comandante comandanteVoo = null;
                     for (Pessoa comandante : listaDeComandantes) {
@@ -200,15 +196,15 @@ public class MenuGerente {
                     String origem = Prompt.lerLinha("Origem:");
                     String destino = Prompt.lerLinha("Destino:");
                     String dataVoo = Prompt.lerLinha("Data do Voo:");
-                    
                     Passageiro[] passageiros = new Passageiro[aeronaveVoo.getQtdAssentos()];
 
-                    controleVoo.adicionarVoo(aeronaveVoo, idVoo, origem, destino, comandanteVoo, comissarioVoo, passageiros, dataVoo, aeronaveVoo.getQtdAssentos());
-
-                    System.out.println("Voo adicionado com sucesso!");
-
-                break;
-                    
+                    if (comandanteVoo != null && comissarioVoo != null) {
+                        controleVoo.adicionarVoo(aeronaveVoo, idVoo, origem, destino, comandanteVoo, comissarioVoo, passageiros, dataVoo, aeronaveVoo.getQtdAssentos());
+                        System.out.println("Voo adicionado com sucesso!");
+                    } else {
+                        System.out.println("Erro: Comandante ou comissário não selecionado.");
+                    }
+                    break;
 
                 case 5:
                     break;
