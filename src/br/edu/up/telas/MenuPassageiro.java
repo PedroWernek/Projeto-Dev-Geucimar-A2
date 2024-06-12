@@ -15,40 +15,6 @@ public class MenuPassageiro {
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
     static ControleVoo controleVoo = new ControleVoo(controleAeronave.getAeronaves(), menuFuncionario.getControleComandante().getComandantes(), menuFuncionario.getControleComissario().getComissarios());
 
-    public static String listarVoos() {
-        if (controleVoo.getListaVoo() == null) {
-            return "Não há voos registrados.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0;
-
-            for (Voo vooExemplo : controleVoo.getListaVoo()) {
-                sb.append("Voo ").append(index).append(":\n");
-                sb.append(vooExemplo.toString()).append("\n");
-                index++;
-            }
-
-            return sb.toString();
-        }
-    }
-
-    public static String listarAssentosDisponiveis(int a) {
-        if (controleVoo.getListaVoo().get(a).getPassageiros() == null) {
-            return "O voo está vazio.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0;
-
-            for (index = 0; index < controleVoo.getListaVoo().get(a).getAeronave().getQtdAssentos(); index++) {
-                if (controleVoo.getListaVoo().get(a).getPassageiros()[index] == null) {
-                    sb.append("Assento ").append(index).append(" Disponível!\n");
-                }
-            }
-
-            return sb.toString();
-        }
-    }
-
     public static void executar() {
         int opcao;
         String nome;
@@ -66,7 +32,7 @@ public class MenuPassageiro {
 
             switch (opcao) {
                 case 1:
-                    listarVoos();
+                    controleVoo.listarVoos();
                     int a = Prompt.lerInteiro("Digite o índice do voo desejado: ");
 
                     nome = Prompt.lerLinha("Informe seu nome: ");
