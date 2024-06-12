@@ -8,6 +8,7 @@ public class EscolherMenu {
         Prompt.separador();
         Prompt.imprimir("1- Menu Gerente");
         Prompt.imprimir("2- Menu Passageiro");
+        Prompt.imprimir("3- Sair");
         Prompt.separador();
 
         int escolha = Prompt.lerInteiro();

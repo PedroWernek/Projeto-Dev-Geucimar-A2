@@ -18,6 +18,7 @@ public class MenuFuncionario {
     Prompt.imprimir("--------MENU ADICIONAR FUNCIONARIO--------");
     Prompt.imprimir("1- Comandante");
     Prompt.imprimir("2- Comissario");
+    Prompt.imprimir("3- Sair");
     Prompt.imprimir("------------------------------------------");
 
     int escolha = Prompt.lerInteiro();
@@ -29,6 +30,8 @@ public class MenuFuncionario {
       case 2:
         cadastrarComissario();
         break;
+      case 3:
+      
       default:
         Prompt.imprimir("Escolha invalida");
         adicionarFuncionario();

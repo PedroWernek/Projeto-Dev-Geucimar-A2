@@ -59,8 +59,6 @@ public class MenuGerente {
         int opcao = 0;
         // int pessoas = 0;
 
-        String nome;
-        String rg;
         Prompt.limparConsole();
         do {
 
@@ -149,6 +147,7 @@ public class MenuGerente {
                 
                     //Lista os voos disponíveis
                     List<Aeronave> listaDeAeronavesVoo = controleAeronave.getAeronaves();
+                    System.out.println("\nCódigo / Quantidade de Assentos / Tipo");
                     for (Aeronave aeronaves : listaDeAeronavesVoo) {
                         System.out.println(aeronaves.getIdCodigo() + " / " + aeronaves.getQtdAssentos() + " / " + aeronaves.getTipo());
                     }
@@ -167,6 +166,7 @@ public class MenuGerente {
                     //Lista o(a)s comandantes e registra o(a)(s) escolhido(a)(s)
                     ControleComandante controleComandante = new ControleComandante();
                     List<Pessoa> listaDeComandantes = controleComandante.getComandantes();
+                    System.out.println("\nRG / Nome");
                     for (Pessoa comandante : listaDeComandantes) {
                         System.out.println(comandante.getRg() + " / " + comandante.getNome());
                     }
@@ -213,10 +213,6 @@ public class MenuGerente {
                 case 5:
                     break;
                 case 6:
-                    // TODO: estou fazendo um menu só para criar funcionario
-                    /*
-                     * Assim aqui CAUÊ você também cria comissario junto comigo
-                     */
                     menuFuncionario.adicionarFuncionario();
 
                     break;
@@ -227,6 +223,7 @@ public class MenuGerente {
                     menuFuncionario.removerFuncionario();
                     break;
                 case 0:
+                    EscolherMenu.escolha();
                     break;
                 default:
                     Prompt.imprimir("Dígito inválido!");

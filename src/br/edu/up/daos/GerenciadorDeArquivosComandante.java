@@ -43,10 +43,11 @@ public class GerenciadorDeArquivosComandante {
 
         String nome = dados[0];
         String rg = dados[1];
-        int idAeronautica = Integer.parseInt(dados[2]);
-        int idMatricula = Integer.parseInt(dados[3]);
+        double idAeronautica = Double.parseDouble(dados[2]);
+        double idMatricula = Double.parseDouble(dados[3]);
+        int totalHorasVoo = Integer.parseInt(dados[4]);
 
-        Pessoa comandante = new Comandante(nome, rg, idAeronautica, idMatricula, idMatricula);
+        Pessoa comandante = new Comandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
         listaDeComandantes.add(comandante);
       }
 
