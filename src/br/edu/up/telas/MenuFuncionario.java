@@ -27,6 +27,7 @@ public class MenuFuncionario {
         adicionarComandante();
         break;
       case 2:
+        cadastrarComissario();
         break;
       default:
         Prompt.imprimir("Escolha invalida");
@@ -50,6 +51,7 @@ public class MenuFuncionario {
         removerComandante();
         break;
       case 2:
+        removerComissario();
         break;
       default:
         Prompt.imprimir("Escolha invalida");
@@ -59,8 +61,10 @@ public class MenuFuncionario {
 
   }
   // TODO fazer ListarFuncionarios
+  //Mudei o nome pra "MENU LISTAR FUNCIONARIO" pq ainda tava como remover, por algum motivo
+  //Bom vc mudar ali pedro o removerComandante(); 
   public void listarFuncionarios() {
-    Prompt.imprimir("--------MENU REMOVER FUNCIONARIO--------");
+    Prompt.imprimir("--------MENU LISTAR FUNCIONARIO--------");
     Prompt.imprimir("1- Comandante");
     Prompt.imprimir("2- Comissario");
     Prompt.imprimir("------------------------------------------");
@@ -72,6 +76,7 @@ public class MenuFuncionario {
         removerComandante();
         break;
       case 2:
+        listarComissario();
         break;
       default:
         Prompt.imprimir("Escolha invalida");
@@ -116,4 +121,42 @@ public class MenuFuncionario {
       Prompt.imprimir("Erro ao remover comandante!");
     }
   }
+
+  
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //PARTE COMISSARIO:
+
+  public void cadastrarComissario(){
+    String nome = Prompt.lerLinha("Digite o nome do comissário: ");
+    String rg = Prompt.lerLinha("Digite o RG: ");
+    int idAeronautica = Prompt.lerInteiro("Digite o ID Da Aeronautica: ");
+    int idMatricula = Prompt.lerInteiro("Digite o ID da Matricula: ");
+    String idioma = Prompt.lerLinha("Digite o idioma do comissário: ");
+
+    controleComissario.cadastrarComissario(nome, rg, idAeronautica, idMatricula, idioma);
+
+    if (controleComissario.gravar()) {
+      Prompt.imprimir("Comissário adicionado com sucesso!");
+    } else {
+      Prompt.imprimir("Erro ao adicionar o comissário!");
+    }
+
+    Prompt.linhaEmBranco();
+    Prompt.pressionarEnter();
+    
+  }
+
+  public void removerComissario(){
+    String rg = Prompt.lerLinha("Digite o RG do comissário a ser deletado: ");
+    controleComissario.remover(rg);
+  }
+
+  public void listarComissario(){
+    Prompt.imprimir("Esses são os comissários cadastrados: ");
+    Prompt.imprimir(controleComissario.listar());
+  }
+
+
+
 }
