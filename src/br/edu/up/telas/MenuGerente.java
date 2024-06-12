@@ -15,9 +15,11 @@ public class MenuGerente {
      */
     static ControleAeronave controleAeronave = new ControleAeronave();
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
-    static ControleVoo controleVoo = new ControleVoo(controleAeronave, menuFuncionario);
+    static ControleVoo controleVoo = new ControleVoo();
 
     // => Pedro - Criando MenuFuncionario
+
+
     static ArrayList<Voo> voo = new ArrayList<Voo>();
 
     public static String listarVoos() {

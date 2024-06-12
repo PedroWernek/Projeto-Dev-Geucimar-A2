@@ -17,12 +17,12 @@ import br.edu.up.util.Prompt;
 
 public class GerenciadorDeArquivosComandante {
 
-  public String headerComandante = "";
-  public String nomeArquivoComandante;
+  public String headerCom = "";
+  public String nomeArquivo;
   
   public GerenciadorDeArquivosComandante(){
-    Path caminhoArquivoComandante = Paths.get("src", "br", "edu", "up", "docs", "comandantes.csv");
-    nomeArquivoComandante = caminhoArquivoComandante.toAbsolutePath().toString();
+    Path caminhoArquivo = Paths.get("src", "br", "edu", "up", "docs", "comandantes.csv");
+    nomeArquivo = caminhoArquivo.toAbsolutePath().toString();
   }
   public List<Pessoa> getComandantes() {
     /**
@@ -32,26 +32,26 @@ public class GerenciadorDeArquivosComandante {
     List<Pessoa> listaDeComandantes = new ArrayList<>();
 
     try {
-      File arquivoComandante = new File(nomeArquivoComandante);
-      Scanner leitorComandante = new Scanner(arquivoComandante);
+      File arquivo = new File(nomeArquivo);
+      Scanner leitor = new Scanner(arquivo);
 
-      headerComandante = leitorComandante.nextLine();
+      headerCom = leitor.nextLine();
 
-      while (leitorComandante.hasNextLine()) {
-        String linhaAtual = leitorComandante.nextLine();
-        String[] dadosComandante = linhaAtual.split(";");
+      while (leitor.hasNextLine()) {
+        String linhaAtual = leitor.nextLine();
+        String[] dados = linhaAtual.split(";");
 
-        String nome = dadosComandante[0];
-        String rg = dadosComandante[1];
-        double idAeronautica = Double.parseDouble(dadosComandante[2]);
-        double idMatricula = Double.parseDouble(dadosComandante[3]);
-        int totalHorasVoo = Integer.parseInt(dadosComandante[4]);
+        String nome = dados[0];
+        String rg = dados[1];
+        double idAeronautica = Double.parseDouble(dados[2]);
+        double idMatricula = Double.parseDouble(dados[3]);
+        int totalHorasVoo = Integer.parseInt(dados[4]);
 
         Pessoa comandante = new Comandante(nome, rg, idAeronautica, idMatricula, totalHorasVoo);
         listaDeComandantes.add(comandante);
       }
 
-      leitorComandante.close();
+      leitor.close();
 
     } catch (FileNotFoundException e) {
       Prompt.imprimir("Arquivo de Comandantes não Encontrado!");
@@ -67,16 +67,16 @@ public class GerenciadorDeArquivosComandante {
   public boolean gravar(List<Pessoa> listaComandantes) {
 
     try {
-      FileWriter arquivoGravarComandante = new FileWriter(nomeArquivoComandante);
-      PrintWriter gravadorComandante = new PrintWriter(arquivoGravarComandante);
+      FileWriter arquivoGravar = new FileWriter(nomeArquivo);
+      PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-      gravadorComandante.println(headerComandante);
+      gravador.println(headerCom);
 
       for (Pessoa comandante : listaComandantes) {
-        gravadorComandante.println(comandante.toCSV());
+        gravador.println(comandante.toCSV());
       }
 
-      gravadorComandante.close();
+      gravador.close();
       return true;
     } catch (IOException e) {
       

@@ -18,12 +18,12 @@ import br.edu.up.util.Prompt;
 
 public class GerenciadorDeArquivosComissario {
     
-  public String headerComissario = "";
-  public String nomeDoArquivoComissario;
+  public String headerCom = "";
+  public String nomeDoArquivo;
   
   public GerenciadorDeArquivosComissario() {
-        Path caminhoRelativoComissario = Paths.get("src", "br", "edu", "up", "docs", "comissarios.csv");
-        nomeDoArquivoComissario = caminhoRelativoComissario.toAbsolutePath().toString();
+        Path caminhoRelativo = Paths.get("src", "br", "edu", "up", "docs", "comissarios.csv");
+        nomeDoArquivo = caminhoRelativo.toAbsolutePath().toString();
     }
 
   public List<Pessoa> getComissario() {
@@ -31,25 +31,25 @@ public class GerenciadorDeArquivosComissario {
     List<Pessoa> listaComissario = new ArrayList<>();
 
     try {
-      File arquivoComissario = new File(nomeDoArquivoComissario);
-      Scanner leitorComissario = new Scanner(arquivoComissario);
+      File arquivo = new File(nomeDoArquivo);
+      Scanner leitor = new Scanner(arquivo);
 
-      headerComissario = leitorComissario.nextLine();
+      headerCom = leitor.nextLine();
 
-      while (leitorComissario.hasNextLine()) {
-        String linhaAtualComissario = leitorComissario.nextLine();
-        String[] dadosComissario = linhaAtualComissario.split(";");
+      while (leitor.hasNextLine()) {
+        String linhaAtual = leitor.nextLine();
+        String[] dados = linhaAtual.split(";");
 
-        String nome = dadosComissario[0];
-        String rg = dadosComissario[1];
-        int idAeronautica = Integer.parseInt(dadosComissario[2]);
-        int idMatricula = Integer.parseInt(dadosComissario[3]);
+        String nome = dados[0];
+        String rg = dados[1];
+        int idAeronautica = Integer.parseInt(dados[2]);
+        int idMatricula = Integer.parseInt(dados[3]);
 
         Comissario comissario = new Comissario(nome, rg, idAeronautica, idMatricula, rg);
         listaComissario.add(comissario);
       }
 
-      leitorComissario.close();
+      leitor.close();
 
     } catch (FileNotFoundException e) {
       Prompt.imprimir("Arquivo de Comissarios não Encontrado!");
@@ -60,16 +60,16 @@ public class GerenciadorDeArquivosComissario {
   public boolean gravar(List<Pessoa> listaComissario) {
 
     try {
-      FileWriter arquivoGravarComissario = new FileWriter(nomeDoArquivoComissario);
-      PrintWriter gravadorComissario = new PrintWriter(arquivoGravarComissario);
+      FileWriter arquivoGravar = new FileWriter(nomeDoArquivo);
+      PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-      gravadorComissario.println(headerComissario);
+      gravador.println(headerCom);
 
       for (Pessoa comissarios : listaComissario) {
-        gravadorComissario.println(comissarios.toCSV());
+        gravador.println(comissarios.toCSV());
       }
 
-      gravadorComissario.close();
+      gravador.close();
       return true;
     } catch (IOException e) {
       

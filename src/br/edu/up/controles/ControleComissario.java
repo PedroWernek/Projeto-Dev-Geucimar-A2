@@ -11,15 +11,15 @@ public class ControleComissario {
     /* todo add comissario e deletar */
     //dei uma copiada no teu pedro pq n tenho muita idéia de como gravar no CSV );  
 
-    private GerenciadorDeArquivosComissario gravadorComissario;
+    private GerenciadorDeArquivosComissario gravador;
 
     private List<Pessoa> comissarios;
 
     public ControleComissario() {
         this.comissarios = new ArrayList<>(); 
 
-        this.gravadorComissario = new GerenciadorDeArquivosComissario();
-        this.comissarios = gravadorComissario.getComissario();
+        this.gravador = new GerenciadorDeArquivosComissario();
+        this.comissarios = gravador.getComissario();
     }
 
     public void cadastrarComissario(String nome, String rg,  int idAeronautica, int idMatricula, String idioma ){
@@ -29,7 +29,7 @@ public class ControleComissario {
 
 
     public boolean gravar(){
-        return gravadorComissario.gravar(comissarios);
+        return gravador.gravar(comissarios);
     }
 
     public String listar() {
