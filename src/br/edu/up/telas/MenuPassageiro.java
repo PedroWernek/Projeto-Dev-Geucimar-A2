@@ -40,7 +40,7 @@ public class MenuPassageiro {
             Prompt.imprimir("1: Para comprar uma passagem");
             Prompt.imprimir("2: Para deletar sua passagem");
             Prompt.imprimir("3: Para consultar suas passagens");
-            Prompt.imprimir("0: Sair");
+            Prompt.imprimir("0: Voltar");
             opcao = Prompt.lerInteiro();
 
             switch (opcao) {
@@ -54,7 +54,7 @@ public class MenuPassageiro {
                     consultarPassagens();
                     break;
                 case 0:
-                    Prompt.imprimir("Saindo...");
+                    EscolherMenu.escolha();
                     break;
                 default:
                     Prompt.imprimir("Dígito inválido!");
