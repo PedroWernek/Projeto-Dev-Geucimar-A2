@@ -70,6 +70,9 @@ public class MenuPassageiro {
                         if (rg.equals(controlePassageiro.getPassageiros().get(i).getRg())) {
                             if(controleVoo.getListaVoo().get(a) == controlePassageiro.getPassageiros().get(i).getPassagem().getVoo()) {
                                 controlePassageiro.getPassageiros().remove(i);
+                                if (controlePassageiro.gravador()) {
+                                    Prompt.imprimir("Passagem deletada com sucesso! :)");
+                                }
                                 break;
                             }
                         }

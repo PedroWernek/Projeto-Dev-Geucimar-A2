@@ -19,23 +19,6 @@ public class MenuGerente {
 
     // => Pedro - Criando MenuFuncionario
 
-    public static String listarAssentosDisponiveis(int a) {
-        if (voo.get(a).getPassageiros() == null) {
-            return "O voo está vazio.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0;
-
-            for (index = 0; index < voo.get(a).getAeronave().getQtdAssentos(); index++) {
-                if (voo.get(a).getPassageiros()[index] == null) {
-                    sb.append("Assento ").append(index).append(" Disponível!\n");
-                }
-            }
-
-            return sb.toString();
-        }
-    }
-
     public static void executar() {
         int opcao = 0;
         // int pessoas = 0;
