@@ -31,5 +31,9 @@ public class Passageiro extends Pessoa{
         return nome + ";" + rg + ";" + passagem + ";" + idBagagem;
     }
 
+    @Override
+    public String toString() {
+        return nome + "," + rg + "," + passagem.getIdPassagem() + "," + passagem.getNumAssento() + "," + idBagagem;
+    }
     
 }

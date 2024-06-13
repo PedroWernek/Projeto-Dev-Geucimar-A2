@@ -16,13 +16,11 @@ public class GerenciadorDeArquivosPassageiro {
     public String header = "";
     private String nomeDoArquivo;
 
-    /* encontra partes em comum do caminho já que os computadores tem caminhos diferentes */
     public GerenciadorDeArquivosPassageiro() {
         Path caminhoRelativo = Paths.get("src", "br", "edu", "up", "docs", "passageiros.csv");
         nomeDoArquivo = caminhoRelativo.toAbsolutePath().toString();
     }
 
-    /* lê os arquivos */
     public List<Passageiro> getPassageiro() {
         List<Passageiro> listaDePassageiros = new ArrayList<>();
 
@@ -47,7 +45,6 @@ public class GerenciadorDeArquivosPassageiro {
                 listaDePassageiros.add(passageiro);
 
                 leitor.close();
-                /* verificar se é viável colocar voo */
 
             }
         } catch (FileNotFoundException e) {
@@ -66,7 +63,6 @@ public class GerenciadorDeArquivosPassageiro {
 
                 for (Passageiro passageiro : passageiros) {
                     gravador.println(passageiro.toString());
-                    /* toString ou toCSV? */
                 }
                 gravador.close();
                 return true;

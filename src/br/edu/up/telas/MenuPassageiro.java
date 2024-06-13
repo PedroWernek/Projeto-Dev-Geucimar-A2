@@ -88,7 +88,8 @@ public class MenuPassageiro {
         passagem.setNumAssento(numAssento);
         passagem.setVoo(voo);
 
-        controlePassageiro.adicionarPassageiro(nome, rg, passagem, idBagagem);
+        Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
+        controlePassageiro.adicionarPassageiro(passageiro);
         voo.reduzirQtdAssentosDisponiveis();
 
         if (controlePassageiro.gravador()) {

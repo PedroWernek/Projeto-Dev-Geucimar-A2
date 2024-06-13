@@ -14,8 +14,7 @@ public class ControlePassageiro {
         this.passageiros = new ArrayList<>();
     }
 
-    public void adicionarPassageiro(String nome, String rg, Passagem passagem, int idBagagem) {
-        Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
+    public void adicionarPassageiro(Passageiro passageiro) {
         passageiros.add(passageiro);
     }
 
