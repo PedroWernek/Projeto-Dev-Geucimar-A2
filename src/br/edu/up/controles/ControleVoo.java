@@ -42,8 +42,8 @@ public class ControleVoo {
             listaVoos.append("ID do Voo: ").append(voo.getIdVoo()).append(", ");
             listaVoos.append("Origem: ").append(voo.getOrigem()).append(", ");
             listaVoos.append("Destino: ").append(voo.getDestino()).append(", ");
-            listaVoos.append("Comandante: ").append(voo.getComandante().getNome()).append(", ");
-            listaVoos.append("Comissário: ").append(voo.getComissario().getNome()).append(", ");
+            listaVoos.append("Comandante: ").append(voo.getComandante().getRg()).append(", ");
+            listaVoos.append("Comissário: ").append(voo.getComissario().getRg()).append(", ");
             listaVoos.append("Data do Voo: ").append(voo.getDataVoo()).append(", ");
             listaVoos.append("Assentos Disponíveis: ").append(voo.getQtdAssentosDisponiveis()).append("\n");
             i++;

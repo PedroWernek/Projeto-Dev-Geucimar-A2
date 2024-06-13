@@ -39,7 +39,7 @@ public class GerenciadorDeArquivosPassageiro {
                 String assento = dadosPassageiros[4];
                 String idVoo = dadosPassageiros[5];
 
-                Passagem passagem = new Passagem(idPassagem, assento);
+                Passagem passagem = new Passagem(idPassagem, assento, idVoo);
                 Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
                 listaDePassageiros.add(passageiro);
 

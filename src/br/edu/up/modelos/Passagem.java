@@ -5,10 +5,12 @@ public class Passagem {
     private int idPassagem;
     private String numAssento;
     private Voo voo;
+    private String idVoo;
    
-    public Passagem(int idPassagem, String numAssento) {
+    public Passagem(int idPassagem, String numAssento, String idVoo) {
         this.idPassagem = idPassagem;
         this.numAssento = numAssento;
+        this.idVoo = voo.getIdVoo();
     }
 
     public Passagem() {
@@ -32,4 +34,13 @@ public class Passagem {
     public void setVoo(Voo voo) {
         this.voo = voo;
     }
+
+    public String getIdVoo() {
+        return idVoo;
+    }
+
+    public void setIdVoo(String idVoo) {
+        this.idVoo = idVoo;
+    }
+
 }
