@@ -56,6 +56,15 @@ public class ControleVoo {
         return voos;
     }
 
+    public Voo getVoo(int id){
+        for (Voo voo : voos) {
+            if (Integer.parseInt(voo.getIdVoo()) == id) {
+                return voo;
+            }
+        }
+        return null;
+    }
+
     public void setVoos(List<Voo> voos) {
         this.voos = voos;
     }
