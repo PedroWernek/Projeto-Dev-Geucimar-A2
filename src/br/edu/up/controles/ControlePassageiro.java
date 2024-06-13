@@ -27,4 +27,12 @@ public class ControlePassageiro {
         return gravador.gravar(passageiros);
     }
 
+    public ArrayList<Passageiro> getPassageiros() {
+        return passageiros;
+    }
+
+    public void setPassageiros(ArrayList<Passageiro> passageiros) {
+        this.passageiros = passageiros;
+    }
+
 }

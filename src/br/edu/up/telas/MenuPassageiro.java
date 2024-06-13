@@ -65,9 +65,15 @@ public class MenuPassageiro {
                     a = Prompt.lerInteiro("Digite o índice do seu voo: ");
 
                     rg = Prompt.lerLinha("Informe seu RG: ");
-                    /* TODO: implementar a retirada do passageiro do voo, no controle voo */
 
-
+                    for (int i = 0; i < controlePassageiro.getPassageiros().size(); i++) {
+                        if (rg.equals(controlePassageiro.getPassageiros().get(i).getRg())) {
+                            if(controleVoo.getListaVoo().get(a) == controlePassageiro.getPassageiros().get(i).getPassagem().getVoo()) {
+                                controlePassageiro.getPassageiros().remove(i);
+                                break;
+                            }
+                        }
+                    }
 
                     break;
                 case 3:
