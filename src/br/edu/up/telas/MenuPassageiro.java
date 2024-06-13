@@ -6,25 +6,24 @@ import br.edu.up.modelos.*;
 
 public class MenuPassageiro {
 
-    /*
-     * precisa manipular passagens: comprar, deletar, consultar (baseado em
-     * diferenciador, possivelmente rg)
-     */
     static ControlePassageiro controlePassageiro = new ControlePassageiro();
     static ControleAeronave controleAeronave = new ControleAeronave();
     static MenuFuncionario menuFuncionario = new MenuFuncionario();
     static ControleVoo controleVoo = new ControleVoo(controleAeronave.getAeronaves(), menuFuncionario.getControleComandante().getComandantes(), menuFuncionario.getControleComissario().getComissarios());
 
-    public static String listarAssentosDisponiveis(int a) {
-        if (controleVoo.getVoos().get(a).getPassageiros() == null) {
+    public static String listarAssentosDisponiveis(int vooIndex) {
+        Voo voo = controleVoo.getVoos().get(vooIndex);
+        Pessoa[] passageiros = voo.getPassageiros();
+
+        if (passageiros == null || passageiros.length == 0) {
             return "O voo está vazio.";
         } else {
             StringBuilder sb = new StringBuilder();
-            int index = 0;
+            int qtdAssentos = voo.getAeronave().getQtdAssentos();
 
-            for (index = 0; index < controleVoo.getVoos().get(a).getAeronave().getQtdAssentos(); index++) {
-                if (controleVoo.getVoos().get(a).getPassageiros()[index] == null) {
-                    sb.append("Assento ").append(index).append(" Disponível!\n");
+            for (int i = 0; i < qtdAssentos; i++) {
+                if (passageiros[i] == null) {
+                    sb.append("Assento ").append(i).append(" Disponível!\n");
                 }
             }
 
