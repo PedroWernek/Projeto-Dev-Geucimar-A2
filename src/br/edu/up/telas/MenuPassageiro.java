@@ -33,12 +33,8 @@ public class MenuPassageiro {
 
     public static void executar() {
         int opcao;
-        String nome;
-        String rg;
-        
-        
+
         do {
-            
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
             Prompt.imprimir("1: Para comprar uma passagem");
@@ -49,62 +45,13 @@ public class MenuPassageiro {
 
             switch (opcao) {
                 case 1:
-                    System.out.println(controleVoo.listarVoos());
-                    int a = Prompt.lerInteiro("Digite o índice do voo desejado: ");
-
-                    nome = Prompt.lerLinha("Informe seu nome: ");
-                    rg = Prompt.lerLinha("Informe seu RG: ");
-
-                    controleVoo.getVoos().get(a).getAeronave().incrementarIdPassagem();
-                    int idPassagem = controleVoo.getVoos().get(a).getAeronave().getIdPassagem();
-
-                    controleVoo.getVoos().get(a).getAeronave().incrementarIdBagagem();
-                    int idBagagem = controleVoo.getVoos().get(a).getAeronave().getIdBagagem();
-
-                    listarAssentosDisponiveis(a);
-                    String numAssento = Prompt.lerLinha("Digite o número do assento: ");
-
-                    Passagem passagem = new Passagem();
-                    passagem.setIdPassagem(idPassagem);
-                    passagem.setNumAssento(numAssento);
-                    passagem.setVoo(controleVoo.getVoos().get(a));
-
-                    Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
-                    controleVoo.getVoos().get(a).reduzirQtdAssentosDisponiveis();
-
-                    if (controlePassageiro.gravador()) {
-                        Prompt.imprimir("Passagem gravada com sucesso! :)");
-                    }
-
+                    comprarPassagem();
                     break;
                 case 2:
-                    controleVoo.listarVoos();
-                    a = Prompt.lerInteiro("Digite o índice do seu voo: ");
-
-                    rg = Prompt.lerLinha("Informe seu RG: ");
-
-                    for (int i = 0; i < controlePassageiro.getPassageiros().size(); i++) {
-                        if (rg.equals(controlePassageiro.getPassageiros().get(i).getRg())) {
-                            if(controleVoo.getVoos().get(a) == controlePassageiro.getPassageiros().get(i).getPassagem().getVoo()) {
-                                controlePassageiro.getPassageiros().remove(i);
-                                if (controlePassageiro.gravador()) {
-                                    Prompt.imprimir("Passagem deletada com sucesso! :)");
-                                }
-                                break;
-                            }
-                        }
-                    }
-
+                    deletarPassagem();
                     break;
                 case 3:
-                    rg = Prompt.lerLinha("Informe seu RG: ");
-
-                    for (int i = 0; i < controlePassageiro.getPassageiros().size(); i++) {
-                        if (rg.equals(controlePassageiro.getPassageiros().get(i).getRg())) {
-                            Voo voo = controlePassageiro.getPassageiros().get(i).getPassagem().getVoo();
-                            Prompt.imprimir("Data: " + voo.getDataVoo() + "\nOrigem: " + voo.getOrigem() + "\nDestino: " + voo.getDestino() + "\nAssento: " + controlePassageiro.getPassageiros().get(i).getPassagem() + "\n");
-                        }
-                    }
+                    consultarPassagens();
                     break;
                 case 0:
                     Prompt.imprimir("Saindo...");
@@ -115,4 +62,38 @@ public class MenuPassageiro {
             }
         } while (opcao != 0);
     }
+
+    private static void comprarPassagem() {
+        Prompt.imprimir(controleVoo.listarVoos());
+        int vooIndex = Prompt.lerInteiro("Digite o índice do voo desejado: ");
+
+        String nome = Prompt.lerLinha("Informe seu nome: ");
+        String rg = Prompt.lerLinha("Informe seu RG: ");
+
+        Voo voo = controleVoo.getVoos().get(vooIndex);
+        Aeronave aeronave = voo.getAeronave();
+
+        aeronave.incrementarIdPassagem();
+        int idPassagem = aeronave.getIdPassagem();
+
+        aeronave.incrementarIdBagagem();
+        int idBagagem = aeronave.getIdBagagem();
+
+        Prompt.imprimir(listarAssentosDisponiveis(vooIndex));
+        String numAssento = Prompt.lerLinha("Digite o número do assento: ");
+
+        Passagem passagem = new Passagem();
+        passagem.setIdPassagem(idPassagem);
+        passagem.setNumAssento(numAssento);
+        passagem.setVoo(voo);
+
+        Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
+        voo.reduzirQtdAssentosDisponiveis();
+
+        if (controlePassageiro.gravador()) {
+            Prompt.imprimir("Passagem gravada com sucesso! :)");
+        }
+    }
+
+    
 }
