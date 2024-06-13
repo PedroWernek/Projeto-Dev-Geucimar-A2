@@ -36,9 +36,10 @@ public class MenuPassageiro {
         int opcao;
         String nome;
         String rg;
-
+        
+        
         do {
-
+            
             Prompt.separador();
             Prompt.imprimir("Bem-vindo ao menu! :) Digite: ");
             Prompt.imprimir("1: Para comprar uma passagem");
@@ -49,7 +50,7 @@ public class MenuPassageiro {
 
             switch (opcao) {
                 case 1:
-                    controleVoo.listarVoos();
+                    System.out.println(controleVoo.listarVoos());
                     int a = Prompt.lerInteiro("Digite o índice do voo desejado: ");
 
                     nome = Prompt.lerLinha("Informe seu nome: ");

@@ -75,6 +75,7 @@ public class MenuFuncionario {
     Prompt.imprimir("--------MENU LISTAR FUNCIONARIO--------");
     Prompt.imprimir("1- Comandante");
     Prompt.imprimir("2- Comissario");
+    Prompt.imprimir("3- Sair");
     Prompt.imprimir("------------------------------------------");
 
     int escolha = Prompt.lerInteiro();
@@ -85,6 +86,8 @@ public class MenuFuncionario {
         break;
       case 2:
         listarComissario();
+        break;
+        case 3:
         break;
       default:
         Prompt.imprimir("Escolha invalida");
