@@ -9,6 +9,11 @@ public class ControlePassageiro {
     private GerenciadorDeArquivosPassageiro gravador;
     ArrayList<Passageiro> passageiros = new ArrayList<>();
 
+    public ControlePassageiro() {
+        this.gravador = new GerenciadorDeArquivosPassageiro(); 
+        this.passageiros = new ArrayList<>();
+    }
+
     public void adicionarPassageiro(String nome, String rg, Passagem passagem, int idBagagem) {
         Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
         passageiros.add(passageiro);

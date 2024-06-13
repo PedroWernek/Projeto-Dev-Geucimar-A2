@@ -66,6 +66,7 @@ public class MenuPassageiro {
     private static void comprarPassagem() {
         Prompt.imprimir(controleVoo.listarVoos());
         int vooIndex = Prompt.lerInteiro("Digite o índice do voo desejado: ");
+        vooIndex--;
 
         String nome = Prompt.lerLinha("Informe seu nome: ");
         String rg = Prompt.lerLinha("Informe seu RG: ");
