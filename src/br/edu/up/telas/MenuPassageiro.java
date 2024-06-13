@@ -95,5 +95,32 @@ public class MenuPassageiro {
         }
     }
 
-    
+    private static void deletarPassagem() {
+        Prompt.imprimir(controleVoo.listarVoos());
+        int vooIndex = Prompt.lerInteiro("Digite o índice do seu voo: ");
+        String rg = Prompt.lerLinha("Informe seu RG: ");
+
+        for (int i = 0; i < controlePassageiro.getPassageiros().size(); i++) {
+            Passageiro passageiro = controlePassageiro.getPassageiros().get(i);
+            if (rg.equals(passageiro.getRg()) && controleVoo.getVoos().get(vooIndex) == passageiro.getPassagem().getVoo()) {
+                controlePassageiro.getPassageiros().remove(i);
+                if (controlePassageiro.gravador()) {
+                    Prompt.imprimir("Passagem deletada com sucesso! :)");
+                }
+                break;
+            }
+        }
+    }
+
+    private static void consultarPassagens() {
+        String rg = Prompt.lerLinha("Informe seu RG: ");
+
+        for (Passageiro passageiro : controlePassageiro.getPassageiros()) {
+            if (rg.equals(passageiro.getRg())) {
+                Voo voo = passageiro.getPassagem().getVoo();
+                Prompt.imprimir("Data: " + voo.getDataVoo() + "\nOrigem: " + voo.getOrigem() + "\nDestino: " + voo.getDestino() + "\nAssento: " + passageiro.getPassagem().getNumAssento() + "\n");
+            }
+        }
+    }
+
 }
