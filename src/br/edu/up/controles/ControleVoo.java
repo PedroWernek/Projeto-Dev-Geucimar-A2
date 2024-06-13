@@ -52,6 +52,14 @@ public class ControleVoo {
     }
     
 
+    public List<Voo> getVoos() {
+        return voos;
+    }
+
+    public void setVoos(List<Voo> voos) {
+        this.voos = voos;
+    }
+
     public boolean gravador(){
         return gravador.gravar(voos);
     }
