@@ -13,7 +13,7 @@ import br.edu.up.util.Prompt;
 
 public class GerenciadorDeArquivosPassageiro {
     
-    public String header = "";
+    private static final String header = "nome;rg;idPassagem;assento;idBagagem";
     private String nomeDoArquivo;
 
     public GerenciadorDeArquivosPassageiro() {
@@ -27,8 +27,6 @@ public class GerenciadorDeArquivosPassageiro {
         try {
             File arquivoDeLeitura = new File(nomeDoArquivo);
             Scanner leitor = new Scanner(arquivoDeLeitura);
-
-            header = leitor.nextLine();
 
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine();
