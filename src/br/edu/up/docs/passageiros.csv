@@ -1,2 +1,2 @@
-nome;rg;idPassagem;assento;idBagagem
-Ana,7.777.777,1,19,1
+nome;rg;idPassagem;assento;idBagagem;idVoo
+Ana,7.777.777,1,10,1,6435

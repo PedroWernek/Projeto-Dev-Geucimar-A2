@@ -13,7 +13,7 @@ import br.edu.up.util.Prompt;
 
 public class GerenciadorDeArquivosPassageiro {
     
-    private static final String header = "nome;rg;idPassagem;assento;idBagagem";
+    private static final String header = "nome;rg;idPassagem;assento;idBagagem;idVoo";
     private String nomeDoArquivo;
 
     public GerenciadorDeArquivosPassageiro() {
@@ -37,6 +37,7 @@ public class GerenciadorDeArquivosPassageiro {
                 int idBagagem = Integer.parseInt(dadosPassageiros[2]);
                 int idPassagem = Integer.parseInt(dadosPassageiros[3]);
                 String assento = dadosPassageiros[4];
+                String idVoo = dadosPassageiros[5];
 
                 Passagem passagem = new Passagem(idPassagem, assento);
                 Passageiro passageiro = new Passageiro(nome, rg, passagem, idBagagem);
